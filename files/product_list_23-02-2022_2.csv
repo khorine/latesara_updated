@@ -1,0 +1,246 @@
+Code,Name,Category Code,Unit,Cost,Price,Alert Quantity, Tax Rate Name,Tax Method
+1,Allsopps 500ML,B,Bottles,220,220,2, No Tax, exclusive
+2,Balozi 500ML,B,Bottles,250,250,2, No Tax, exclusive
+3,Guinness  500ML,B,Bottles,250,250,2, No Tax, exclusive
+6,Guinness Smooth 500ML,B,Bottles,250,250,2, No Tax, exclusive
+8,Pilsner CAN 500ML,B,Bottles,260,260,2, No Tax, exclusive
+9,Sikera CIDER 300ml,B,Bottles,220,220,2, No Tax, exclusive
+10,Tusker Lager 500ml,B,Bottles,250,250,2, No Tax, exclusive
+12,Tusker Cider 500ml,B,Bottles,250,250,2, No Tax, exclusive
+13,Tusker Lite 330ML,B,Bottles,250,250,2, No Tax, exclusive
+14,Tusker Malt Lager 330ml,B,Bottles,250,250,2, No Tax, exclusive
+15,Whitecap 500ML,B,Bottles,250,250,2, No Tax, exclusive
+16,Whitecap Light 300ML,B,Bottles,240,240,2, No Tax, exclusive
+17,Heineken 330ML,B,Bottles,250,250,2, No Tax, exclusive
+18,Savana 330ML,B,Bottles,250,250,2, No Tax, exclusive
+19,Faxe 500ML,B,Bottles,280,280,2, No Tax, exclusive
+20,Balozi can 500ML,B,Bottles,260,260,2, No Tax, exclusive
+21,Guinness Cans 500ML,B,Bottles,280,280,2, No Tax, exclusive
+22,Guinness Smooth Cans 500ML,B,Bottles,260,260,2, No Tax, exclusive
+23,Hop House 13 can 500ML,B,Bottles,250,250,2, No Tax, exclusive
+25,Sikera CIDER CANS 330ml,B,Bottles,250,250,2, No Tax, exclusive
+26,Tusker Cans 500ML,B,Bottles,260,260,2, No Tax, exclusive
+28,Tusker Cider Can 500ML,B,Bottles,260,260,2, No Tax, exclusive
+29,Tusker Lite Can 500ML,B,Bottles,260,260,2, No Tax, exclusive
+30,Tusker Malt Lager Can 500ML,B,Bottles,260,260,2, No Tax, exclusive
+31,WHITE CAP CAN 500ML,B,Bottles,260,260,2, No Tax, exclusive
+32,Heineken Can 500ML,B,Bottles,300,300,2, No Tax, exclusive
+34,Alvaro Can,B,Bottles,150,150,2, No Tax, exclusive
+35,Gilbeys Gin 350ml,B,Bottles,1000,1000,2, No Tax, exclusive
+36,Gilbeys Gin 750ml,B,Bottles,1800,1800,2, No Tax, exclusive
+40,Gordons Dry Gin,B,Bottles,2200,2200,2, No Tax, exclusive
+41,Tanqueray Dry Gin 750,B,Bottles,4000,4000,2, No Tax, exclusive
+42,Tanqueray 10 750ml,B,Bottles,6000,6000,2, No Tax, exclusive
+44,Tanqueray sevilla 700ml,B,Bottles,4000,4000,2, No Tax, exclusive
+45,Chrome Gin 750ml,B,Bottles,0,0,2, No Tax, exclusive
+46,Richot Brandy 350ml,B,Bottles,1000,1000,2, No Tax, exclusive
+47,Richot Brandy 750ml,B,Bottles,2200,2200,2, No Tax, exclusive
+48,Smirnoff Red Vodka 350ml,B,Bottles,1000,1000,2, No Tax, exclusive
+49,Smirnoff Citrus 700ml,B,Bottles,3000,3000,2, No Tax, exclusive
+50,Smirnoff Orange 700ml,B,Bottles,3000,3000,2, No Tax, exclusive
+51,Smirnoff Espresso 700ml,B,Bottles,3000,3000,2, No Tax, exclusive
+52,Smirnoff Gold Liq 700ml,B,Bottles,3000,3000,2, No Tax, exclusive
+53,Smirnoff Vanilla 700ml,B,Bottles,3000,3000,2, No Tax, exclusive
+55,Smirnoff red   Vodka 750ml,B,Bottles,2200,2200,2, No Tax, exclusive
+63,Bond 7 Whisky 350ml,B,Bottles,900,900,2, No Tax, exclusive
+64,VAT 69 375ml,B,Bottles,1200,1200,2, No Tax, exclusive
+65,J&B HONEY 700ml,B,Bottles,4000,4000,2, No Tax, exclusive
+66,Bond 7 Whisky 750ml,B,Bottles,2000,2000,2, No Tax, exclusive
+69,J&B RARE 750ml,B,Bottles,2500,2500,2, No Tax, exclusive
+70,JW Red Label 750ml,B,Bottles,2500,2500,2, No Tax, exclusive
+73,JW Red Label 1ltr,B,Bottles,3200,3200,2, No Tax, exclusive
+74,JW Red Label Cradle 3ltr,B,Bottles,13000,13000,2, No Tax, exclusive
+75,JW Red Label 4.5ltr,B,Bottles,17000,17000,2, No Tax, exclusive
+76,JW Black Label 750 ml,B,Bottles,4500,4500,2, No Tax, exclusive
+77,JW double Black 750ml,B,Bottles,8000,8000,2, No Tax, exclusive
+78,JW White Walker 750ml,B,Bottles,4500,4500,2, No Tax, exclusive
+79,JW Song of Ice 750ml,B,Bottles,4500,4500,2, No Tax, exclusive
+80,JW Song of Fire 750ml,B,Bottles,4500,4500,2, No Tax, exclusive
+81,JW Blue Label 750ml,B,Bottles,35000,35000,2, No Tax, exclusive
+82,JW Black Label 1ltr,B,Bottles,5600,5600,2, No Tax, exclusive
+88,JW Black Label Cradle 3ltr,B,Bottles,22000,22000,2, No Tax, exclusive
+90,CAPTAIN Morgan GOLD 750ml,B,Bottles,1600,1600,2, No Tax, exclusive
+90,CAPTAIN Morgan GOLD 750ml,B,Bottles,1600,1600,2, No Tax, exclusive
+92,CAPTAIN MORGAN JAM RUM 750ml,B,Bottles,2800,2800,2, No Tax, exclusive
+93,CAPTAIN MORGAN SPICED GOLD 750ml,B,Bottles,3200,3200,2, No Tax, exclusive
+95,V&A 750ml,B,Bottles,1200,1200,2, No Tax, exclusive
+96,BAILEYS DELIGHT 750ml,B,Bottles,2000,2000,2, No Tax, exclusive
+97,BAILEYS ORIGINAL 750ml,B,Bottles,3500,3500,2, No Tax, exclusive
+99,Kenya Cane 750ml,B,Bottles,1200,1200,2, No Tax, exclusive
+100,Chrome Vodka 750ml,B,Bottles,1200,1200,2, No Tax, exclusive
+101,Bulleit Bourbon 700ml,B,Bottles,6000,6000,2, No Tax, exclusive
+102,Caol Ila MOCH 750ml,B,Bottles,9000,9000,2, No Tax, exclusive
+103,CAOLILA MOCH 700ml,B,Bottles,9000,9000,2, No Tax, exclusive
+104,Cardhu 12 yr 750ml,B,Bottles,7500,7500,2, No Tax, exclusive
+105,Ciroc 750ml,B,Bottles,6400,6400,2, No Tax, exclusive
+107,Ciroc 3ltrs,B,Bottles,24000,24000,2, No Tax, exclusive
+108,Ciroc Pineapple 750ml,B,Bottles,6400,6400,2, No Tax, exclusive
+109,Ciroc Red Berry 700ml,B,Bottles,6400,6400,2, No Tax, exclusive
+110,Ciroc Coconut 700ml,B,Bottles,6400,6400,2, No Tax, exclusive
+111,Clynelish 14 yr 700ml,B,Bottles,10500,10500,2, No Tax, exclusive
+112,Cragganmore 12 yr 750ml,B,Bottles,8000,8000,2, No Tax, exclusive
+114,Dalwhinnie 15 yr 750ml,B,Bottles,9500,9500,2, No Tax, exclusive
+116,Dimple 15 yr 750ml,B,Bottles,7800,7800,2, No Tax, exclusive
+118,Don Julio Anejo 750ml,B,Bottles,12000,12000,2, No Tax, exclusive
+119,Don Julio Blanco 750ml,B,Bottles,8800,8800,2, No Tax, exclusive
+120,Don Julio Reposado 750ml,B,Bottles,8800,8800,2, No Tax, exclusive
+121,Glenfiddich 12 Yr 1liter,B,Bottles,8500,8500,2, No Tax, exclusive
+122,J Wlkr Gold  18 yrs 750ml,B,Bottles,11000,11000,2, No Tax, exclusive
+123,J Wlkr Gold Reserve (18Y) 1ltr,B,Bottles,11500,11500,2, No Tax, exclusive
+124,Jw Green 750ml,B,Bottles,9500,9500,2, No Tax, exclusive
+125,JW GREEN 750ml,B,Bottles,9500,9500,2, No Tax, exclusive
+126,JW Platinum 750ml,B,Bottles,13500,13500,2, No Tax, exclusive
+128,JW&Sons Odyssey 750ml,B,Bottles,240000,240000,2, No Tax, exclusive
+129,Ketel One 750ml,B,Bottles,4400,4400,2, No Tax, exclusive
+131,Ketel One Citrn 750ml,B,Bottles,4400,4400,2, No Tax, exclusive
+132,King George IV 700ml,B,Bottles,2000,2000,2, No Tax, exclusive
+133,Lagavulin 16 750ml,B,Bottles,14000,14000,2, No Tax, exclusive
+134,Oban 14 750ml,B,Bottles,11000,11000,2, No Tax, exclusive
+136,Singleton of Dufftown (12 yr) 700ml,B,Bottles,6500,6500,2, No Tax, exclusive
+137,Singleton of Dufftown (15 yr) 700ml,B,Bottles,9500,9500,2, No Tax, exclusive
+138,Singleton of Dufftown (18Yr) 700ml,B,Bottles,10500,10500,2, No Tax, exclusive
+139,Singleton Tailfire 750ml,B,Bottles,6500,6500,2, No Tax, exclusive
+140,Singleton Tailfire 700ml,B,Bottles,6500,6500,2, No Tax, exclusive
+141,Singleton Sunray 700ml,B,Bottles,6500,6500,2, No Tax, exclusive
+142,Talisker  10Y 750ml,B,Bottles,8000,8000,2, No Tax, exclusive
+144,Talisker Storm  700,B,Bottles,7200,7200,2, No Tax, exclusive
+145,Talisker Port Ruighe 700ml,B,Bottles,8000,8000,2, No Tax, exclusive
+148,Zacapa Cent 23 750ml,B,Bottles,0,0,2, No Tax, exclusive
+151,Red Bull Can,B,Bottles,250,250,2, No Tax, exclusive
+152,Monster Can,B,Bottles,300,300,2, No Tax, exclusive
+153,Soda 330ml,B,Bottles,100,100,2, No Tax, exclusive
+154,Delmonte 1ltr,B,Bottles,300,300,2, No Tax, exclusive
+155,Minute Maid 1 ltr,B,Bottles,250,250,2, No Tax, exclusive
+156,Minute Maid 400ml,B,Bottles,150,150,2, No Tax, exclusive
+157,Novida,B,Bottles,0,0,2, No Tax, exclusive
+159,Plastic Soda 500ml,B,Bottles,120,120,2, No Tax, exclusive
+160,Dasani 1l,B,Bottles,200,200,2, No Tax, exclusive
+162,Sip it 500ml,B,Bottles,100,100,2, No Tax, exclusive
+163,Sip it 1ltr,B,Bottles,150,150,2, No Tax, exclusive
+164,GOLD RESERVE 750ML,B,Bottles,10000,10000,2, No Tax, exclusive
+165,4TH STREET -WHITE 750ml,B,Bottles,1500,1500,2, No Tax, exclusive
+165,4TH STREET -WHITE 750ml,B,Bottles,1500,1500,2, No Tax, exclusive
+166,CAPRICE RED 750ML,B,Bottles,1200,1200,2, No Tax, exclusive
+167,CAPRICE WHITE 750ML,B,Bottles,1200,1200,2, No Tax, exclusive
+168,CELLAR CASK 375ML,B,Bottles,0,0,2, No Tax, exclusive
+169,CELLAR CASK RED 750ML,B,Bottles,1500,1500,2, No Tax, exclusive
+170,CELLAR CASK White 750ML,B,Bottles,1500,1500,2, No Tax, exclusive
+171,Robertson White 750ml,B,Bottles,1800,1800,2, No Tax, exclusive
+172,Robertson Red 750ml,B,Bottles,1800,1800,2, No Tax, exclusive
+173,FOUR COUSINS RED 750ml,B,Bottles,1500,1500,2, No Tax, exclusive
+174,FOUR COUSINS White 750ml,B,Bottles,1500,1500,2, No Tax, exclusive
+175,Asconi 750ml,B,Bottles,2000,2000,2, No Tax, exclusive
+177,Frontera 750ml,B,Bottles,1500,1500,2, No Tax, exclusive
+178,HENNESSY TOT,B,Bottles,0,0,2, No Tax, exclusive
+179,MARTEL TOT,B,Bottles,0,0,2, No Tax, exclusive
+180,REMY MARTINI TOT,B,Bottles,0,0,2, No Tax, exclusive
+181,HENNESSY 700ML,B,Bottles,6500,6500,2, No Tax, exclusive
+182,MARTEL 750ml,B,Bottles,6500,6500,2, No Tax, exclusive
+183,REMY MARTIN 750ml,B,Bottles,8500,8500,2, No Tax, exclusive
+184,HENNESSY 1 LTR,B,Bottles,8500,8500,2, No Tax, exclusive
+185,MARTEL 1 LTR,B,Bottles,0,0,2, No Tax, exclusive
+186,REMY MARTIN 1 ltr,B,Bottles,10500,10500,2, No Tax, exclusive
+187,Jack Daniel 1ltr,B,Bottles,5800,5800,2, No Tax, exclusive
+188,CHARLES HEIDSIECK (BRUT),B,Bottles,0,0,2, No Tax, exclusive
+189,MOET N CHANDOM (BRUT),B,Bottles,12000,12000,2, No Tax, exclusive
+190,PIPER HEIDSIECK (DEMIDOUX),B,Bottles,0,0,2, No Tax, exclusive
+191,Grants 1litre,B,Bottles,3500,3500,2, No Tax, exclusive
+192,Best Whisky,B,Bottles,1500,1500,2, No Tax, exclusive
+193,Ballantine 750ml,B,Bottles,3200,3200,2, No Tax, exclusive
+194,William Lawsons 750ml,B,Bottles,0,0,2, No Tax, exclusive
+195,Famous Grouse750ml,B,Bottles,2500,2500,2, No Tax, exclusive
+196,Southern Comfort 750ml,B,Bottles,3000,3000,2, No Tax, exclusive
+198,Southern Comfort 1ltr,B,Bottles,0,0,2, No Tax, exclusive
+199,Jameson 750ml,B,Bottles,3500,3500,2, No Tax, exclusive
+200,Old Smuggler 750ml,B,Bottles,2000,2000,2, No Tax, exclusive
+201,Hunters Choice 750ml,B,Bottles,1400,1400,2, No Tax, exclusive
+202,Konyagi 750ml,B,Bottles,0,0,2, No Tax, exclusive
+203,Beefighter London 750,B,Bottles,3200,3200,2, No Tax, exclusive
+205,Best Gin 750ml,B,Bottles,1200,1200,2, No Tax, exclusive
+206,VICEROY 750ML,B,Bottles,2000,2000,2, No Tax, exclusive
+207,Jagermister 750ml,B,Bottles,3500,3500,2, No Tax, exclusive
+209,pall mall,B,Bottles,350,350,2, No Tax, exclusive
+210,dunhill,F,Bottles,400,400,2, No Tax, exclusive
+211,embassy,F,Bottles,400,400,2, No Tax, exclusive
+212,sportsman,F,Bottles,300,300,2, No Tax, exclusive
+215,Pilsner 500ML,B,Bottles,250,250,2, No Tax, exclusive
+216,Snapp 330ml,B,Bottles,250,250,2, No Tax, exclusive
+217,Snapp Can 300ml,B,Bottles,250,250,2, No Tax, exclusive
+219,Black ice can 330ml,B,Bottles,250,250,2, No Tax, exclusive
+220,Guarana Can 330,B,Bottles,250,250,2, No Tax, exclusive
+221,Smirnoff Ice 330,B,Bottles,250,250,2, No Tax, exclusive
+222,Glenfiddich 12 yrs 750ml,B,Bottles,7000,7000,2, No Tax, exclusive
+223,Black ice  330ml,B,Bottles,250,250,2, No Tax, exclusive
+224,kingfisher,B,Bottles,220,220,2, No Tax, exclusive
+225,Teachers cream,B,Bottles,2600,2600,2, No Tax, exclusive
+226,Safari lemonade,B,Bottles,100,100,2, No Tax, exclusive
+227,Jim beam  750ml,B,Bottles,3200,3200,2, No Tax, exclusive
+228,TONIC WATER SODA,B,Bottles,100,100,2, No Tax, exclusive
+229,desperados 330mml,B,Bottles,300,300,2, No Tax, exclusive
+230,Best cream 750ml,B,Bottles,1600,1600,2, No Tax, exclusive
+231,saint anna 750ml,B,Bottles,1500,1500,2, No Tax, exclusive
+232,Tuborg,B,Bottles,220,220,2, No Tax, exclusive
+233,rothmans SM,B,Bottles,300,300,2, No Tax, exclusive
+234,Belaire luxe,B,Bottles,6500,6500,2, No Tax, exclusive
+236,dunhill double,B,Bottles,450,450,2, No Tax, exclusive
+237,ballantines 1ltr,B,Bottles,4200,4200,2, No Tax, exclusive
+238,TRUST CLASSIC,B,Bottles,150,150,2, No Tax, exclusive
+239,grants 750 ml,B,Bottles,2500,2500,2, No Tax, exclusive
+240,rhino kubwa,B,Bottles,30,30,2, No Tax, exclusive
+241,mara moja,B,Bottles,30,30,2, No Tax, exclusive
+242,panadol,B,Bottles,30,30,2, No Tax, exclusive
+243,eno,B,Bottles,30,30,2, No Tax, exclusive
+244,SHERIDANS,B,Bottles,8500,8500,2, No Tax, exclusive
+246,old monk,B,Bottles,1800,1800,2, No Tax, exclusive
+247,amarula,B,Bottles,4500,4500,2, No Tax, exclusive
+248,jameson 1litre,B,Bottles,4500,4500,2, No Tax, exclusive
+249,jack daniel honey 1L,B,Bottles,6500,6500,2, No Tax, exclusive
+250,glenfiddich 18yrs 750,B,Bottles,12000,12000,2, No Tax, exclusive
+251,chivas 750 ml,B,Bottles,5000,5000,2, No Tax, exclusive
+253,jack daniel 700ml,B,Bottles,4500,4500,2, No Tax, exclusive
+254,casabuena,B,Bottles,1000,1000,2, No Tax, exclusive
+255,soda 1.25 litre,B,Bottles,250,250,2, No Tax, exclusive
+257,JW double black 1litre,B,Bottles,10000,10000,2, No Tax, exclusive
+258,DAISY,B,Bottles,80,80,2, No Tax, exclusive
+259,VAT 69 750ML,B,Bottles,2000,2000,2, No Tax, exclusive
+260,JAGERMISTER 1ltr Mzinga,B,Bottles,7000,7000,2, No Tax, exclusive
+261,GLENFIDDICH 750ML 15YRS,B,Bottles,10500,10500,2, No Tax, exclusive
+262,HUNTERS DRY REAL CIDER,B,Bottles,250,250,2, No Tax, exclusive
+263,DROSTDY HOF red,B,Bottles,1500,1500,2, No Tax, exclusive
+265,HENNESEY VSOP 750ML,B,Bottles,11500,11500,2, No Tax, exclusive
+266,HENNESEY VSOP 1LTR,B,Bottles,14000,14000,2, No Tax, exclusive
+267,MARTEL VSOP 1L,B,Bottles,13000,13000,2, No Tax, exclusive
+268,SCOTISH LEADER,B,Bottles,5000,5000,2, No Tax, exclusive
+269,VICEROY 10YRS,B,Bottles,5000,5000,2, No Tax, exclusive
+270,WILLIAM LAWSON 1.5L,B,Bottles,4000,4000,2, No Tax, exclusive
+272,JACK DANIEL HONEY 750ML,B,Bottles,4500,4500,2, No Tax, exclusive
+273,CAMINO,B,Bottles,0,0,2, No Tax, exclusive
+274,BEEFEATER 1L,B,Bottles,4200,4200,2, No Tax, exclusive
+275,POWER PLAY,B,Bottles,150,150,2, No Tax, exclusive
+276,PREDATOR ENERGY,B,Bottles,150,150,2, No Tax, exclusive
+277,SCHWEPPERS  TONIC,B,Bottles,150,150,2, No Tax, exclusive
+278,KISS CHOCOLATE DOTTED,B,Bottles,150,150,2, No Tax, exclusive
+279,TRUST STUDDED,B,Bottles,200,200,2, No Tax, exclusive
+280,WILLIAM lawson can 330ml,B,Bottles,0,0,2, No Tax, exclusive
+281,BELAIRE GOLD,B,Bottles,7500,7500,2, No Tax, exclusive
+282,Red label 375ml,B,Bottles,1500,1500,2, No Tax, exclusive
+283,Whytehall fire 1l,B,Bottles,2000,2000,2, No Tax, exclusive
+284,Whytehall Honey,B,Bottles,2000,2000,2, No Tax, exclusive
+285,Gilbeys Mixed Berry 350ml,B,Bottles,1000,1000,2, No Tax, exclusive
+286,dasani 500ml,B,Bottles,100,100,2, No Tax, exclusive
+287,Gilbeys mixed berry 750ML,B,Bottles,1800,1800,2, No Tax, exclusive
+288,Belaire Rose,B,Bottles,7000,7000,2, No Tax, exclusive
+289,X 8.8,B,Bottles,0,0,2, No Tax, exclusive
+290,Drostdy Hof White,B,Bottles,1500,1500,2, No Tax, exclusive
+291,Martel VSOP 750ML,B,Bottles,10000,10000,2, No Tax, exclusive
+292,Gordons pink,B,Bottles,2200,2200,2, No Tax, exclusive
+293,Black and White 750ml,B,Bottles,1800,1800,2, No Tax, exclusive
+294,Summit Lager,B,Bottles,250,250,2, No Tax, exclusive
+295,Summit Malt,B,Bottles,250,250,2, No Tax, exclusive
+296,Alvaro .,B,Bottles,200,200,2, No Tax, exclusive
+297,William Lawson 1l,B,Bottles,2000,2000,2, No Tax, exclusive
+298,Hop house,B,Bottles,250,250,2, No Tax, exclusive
+299,4th Street Red,B,Bottles,1500,1500,2, No Tax, exclusive
+300,Flirt Vodka 1L ,B,Bottles,3000,3000,2, No Tax, exclusive
+301,Hendricks,B,Bottles,6500,6500,2, No Tax, exclusive
+302,Martel VS 1L,B,Bottles,10000,10000,2, No Tax, exclusive
