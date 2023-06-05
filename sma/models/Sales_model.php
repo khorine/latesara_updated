@@ -58,14 +58,14 @@ class Sales_model extends CI_Model
     }
 public function getAllBarReceptionSalesByCustID($cust_id)
     {
-		$option = $this->getCostCenterByID($cust_id);
+		$option = $this->getCostCenterByID($cust_id); //get customer by id
 		
         $this->db->select($this->db->dbprefix('sales').".id as id,sales.id as sale_id, sma_sales.date,sales.id as reference_no, GROUP_CONCAT(CONCAT(" . $this->db->dbprefix('sale_items') . ".product_name, ' (', " . $this->db->dbprefix('sale_items') . ".quantity, ')') SEPARATOR '\n') as product_name, grand_total as unit_price, paid, (grand_total-paid) as subtotal, sales.currency,'".$option->name."' as name")
 				->join('sale_items', 'sale_items.sale_id=sales.id', 'left')
 				->join('payments', 'sma_payments.sale_id = sma_sales.id', 'left')
 				->where('sma_payments.cost_center_no = "'.$option->name.'"')
                 ->group_by('sales.id');
-		 $q = $this->db->get_where('sales', array('sma_sales.pmethod' => 'costcenter', 'sma_sales.date >' => '2021-10-01 00:00:00','sma_sales.pos' => 1,'sma_sales.cleared' =>0,'sma_sales.grand_total > sma_sales.paid'));        if ($q->num_rows() > 0) {
+		 $q = $this->db->get_where('sales', array('sma_sales.pmethod' => 'costcenter', 'sma_sales.date >' => '2022-10-01 00:00:00','sma_sales.pos' => 1,'sma_sales.cleared' =>0,'sma_sales.grand_total > sma_sales.paid'));        if ($q->num_rows() > 0) {
             foreach (($q->result()) as $row) {
                 $data[] = $row;
             }
@@ -964,6 +964,22 @@ public function getAllBarReceptionSalesByCustID($cust_id)
             return true;
         }
         return FALSE;
+    }
+
+    //Added by HK
+    public function removeBill($billId) {
+        // Delete record from reception_payments table
+        // $this->db->where('id', $billId);
+        // $this->db->delete('reception_payments');
+
+        // Update sales table
+        $data = array(
+            'payment_status' => 'due',
+            'pmethod' => null
+        );
+        $this->db->where('id', $billId);
+        $this->db->update('sales', $data);
+
     }
 
     public function getWarehouseProductQuantity($warehouse_id, $product_id)

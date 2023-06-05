@@ -140,6 +140,29 @@
                                         
                                         <option value="other"><?= lang("other"); ?></option>
                                             </select>
+                                            <div class="pcostcenter_1" style="display:none;">
+                                <div class="form-group">
+                                    <select name="cost_center_no" id="cost_center_no_1" class="form-control cost_center_no">
+                                    <option value="Walkin" selected>--Walkin--</option>
+    
+                                    <?php 
+                                    foreach ($costcenter as $center) { 
+                                        die(print_r($costcenter));?>
+                                        <option value="<?=$center->name?>"><?=$center->name?></option>
+    
+                                    <?php }?>
+                                                        
+                                    </select>
+                                                    
+                                </div>
+                         </div>
+                         <div class="proom_1" style="display:none;">
+                            <div class="form-group">
+                                <input name="room_no" type="text" id="room_no" class="form-control " readonly/>
+								<input type="hidden" name="room_cust" id="room_cust"/>
+                                                    
+                            </div>
+                         </div>
                                          
                                                                                                                                                                                                         </div><div class="col-md-4"><input type="text" placeholder="TXN ID/REFERENCE/COST CENTER" id="reference" name="reference" class="form-control"></div><div class="col-md-3"><!--<input type="number" placeholder="Change" id="change" class="form-control">--></div><div class="col-md-3"><!--<input type="submit" data-action="bulkpay" value="Complete Payment" class="btn btn-primary">--></div></div>
                     <table id="POSData" class="table table-bordered table-hover table-striped">
@@ -217,6 +240,19 @@ else{
 
       
     });
+
+    $(document).on('change', '.paid_by', function () {
+            var p_val = $(this).val();
+            
+            localStorage.setItem('paid_by', p_val);
+            $('#rpaidby').val(p_val);
+            if (p_val == 'costcenter') {
+                $('.pcostcenter_1').show();
+                $('.proom_1' ).hide();
+                $('#room_no' ).focus();
+            } 
+			
+        });
     })
     </script>
     

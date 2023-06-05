@@ -23,6 +23,7 @@ $lang['delete_sales']                       = "Delete Sales";
 $lang['sale_added']                         = "Sale successfully added";
 $lang['sale_updated']                       = "Sale successfully updated";
 $lang['sale_deleted']                       = "Sale successfully deleted";
+$lang['bill_removed']                       = "Bill/s successfully removed";
 $lang['sales_deleted']                      = "Sales successfully deleted";
 $lang['incorrect_gift_card']                = "Gift card number is incorrect or expired.";
 $lang['gift_card_not_for_customer']         = "Gift card number is not for this customer.";
