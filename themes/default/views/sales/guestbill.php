@@ -23,18 +23,15 @@
         $('#bill-room-form').on('submit', function (e) {
             e.preventDefault();
 
-            // Perform form submission
             var form = $(this);
             $.ajax({
                 url: form.attr('action'),
                 method: form.attr('method'),
                 data: form.serialize(),
                 success: function (response) {
-                    // Handle the success response
                     console.log(response);
                 },
                 error: function (xhr, status, error) {
-                    // Handle errors
                     console.log(xhr.responseText);
                 }
             });
@@ -62,24 +59,19 @@
 
     function removeBillFromDatabase(billId, row) {
     $.ajax({
-        url: 'sales/delete_guest_bill',
+        url: 'sales/remove_guest_bill',
         method: 'POST',
         data: {billId: billId},
         success: function (response, status, xhr) {
             if (xhr.status === 200) {
-                // Handle the successful deletion
                 console.log(response);
                 row.remove();
                 recalculateTotalAmount();
-                // alert('Bill successfully removed.');
             } else {
-                // Handle other status codes if needed
                 console.log('Error: ' + xhr.status);
-                //alert('Error removing the bill.');
             }
         },
         error: function (xhr, status, error) {
-            // Handle errors
             console.log(xhr.responseText);
             alert('An error occurred while removing the bill.');
         }
@@ -167,11 +159,12 @@
                     <tr>
                         <td></td>
                         <td></td>
+                        <td></td>
                         <td><b>Total Due</b></td>
                         <td><b><?= $this->sma->formatMoney($total); ?></b></td>
                         <td></td>
                         <td></td>
-                        <td></td>
+                        
                     </tr>
                     </tfoot>
                 </table>

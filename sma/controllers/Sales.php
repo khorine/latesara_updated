@@ -320,23 +320,7 @@ foreach ($arr as $key => $value) {
 		
     }
 
-    //Added by HK
-    // function delete_guest_bill($id = NULL)
-    // {
-    //     //$this->sma->checkPermissions('delete');
-
-    //     if ($this->input->get('id')) {
-    //         $id = $this->input->get('id');
-    //     }
-
-    //     if ($this->sales_model->deleteBill($id)) {
-    //         //echo lang("payment_deleted");
-    //         $this->session->set_flashdata('message', lang("bill_removed"));
-    //         redirect($_SERVER["HTTP_REFERER"]);
-    //     }
-    // }
-
-    public function delete_guest_bill() {
+    public function remove_guest_bill() {
         $billId = $this->input->post('billId');
         $this->load->model('sales_model');
         if($this->sales_model->removeBill($billId))
@@ -346,34 +330,6 @@ foreach ($arr as $key => $value) {
         }
     }
 
-
-    // function removeBill()
-    // {
-
-    //     if (isset($_POST['bill_id'])) {
-    //         $billId = $_POST['bill_id'];
-
-    //         $query = "DELETE FROM sma_reception WHERE bill_id = :billId";
-    //         $stmt = $pdo->prepare($query);
-    //         $stmt->bindParam(':billId', $billId);
-
-    //         if ($stmt->execute()) {
-    //             // Bill removed successfully
-    //             $response = array('status' => 'success', 'message' => 'Bill removed successfully');
-    //         } else {
-    //             // Error occurred while removing the bill
-    //             $response = array('status' => 'error', 'message' => 'Failed to remove the bill');
-    //         }
-
-    //         echo json_encode($response);
-    //     } else {
-    //         // No bill ID provided
-    //         $response = array('status' => 'error', 'message' => 'Invalid request');
-    //         echo json_encode($response);
-    //     }
-
-    // }
-	
     function getReturns($warehouse_id = NULL)
     {
         $this->sma->checkPermissions('return_sales');

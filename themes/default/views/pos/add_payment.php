@@ -193,41 +193,41 @@
                         </div>
                         
                           <div class="pcostcenter_1" style="display:none;">
-                                                <div class="form-group">Cost Center
-                                                    <select name="cost_center_no" id="cost_center_no_1" class="form-control cost_center_no">
-                                                        <option value="Walkin" selected>--Walkin--</option>
+                                <div class="form-group">Cost Center
+                                    <select name="cost_center_no" id="cost_center_no_1" class="form-control cost_center_no">
+                                    <option value="Walkin" selected>--Walkin--</option>
     
-                                                        <?php 
-foreach ($costcenter as $center) { ?>
-                                                        <option value="<?=$center->name?>"><?=$center->name?></option>
+                                    <?php 
+                                    foreach ($costcenter as $center) { ?>
+                                        <option value="<?=$center->name?>"><?=$center->name?></option>
     
-<?php }?>
+                                    <?php }?>
                                                         
-                                                    </select>
+                                    </select>
                                                     
-                                                </div>
+                                </div>
                          </div>
 						 
                           <div class="pstaff_1" style="display:none;">
-                                                <div class="form-group">Staff
-                                                    <select name="staff_no_1" id="staff_no_1" class="form-control ">
+                            <div class="form-group">Staff
+                                <select name="staff_no_1" id="staff_no_1" class="form-control ">
                                                         
-                                                        <?php 
-foreach ($servicestaff as $staff) { ?>
-                                                        <option value="<?=$staff->id?>"><?=$staff->first_name?></option>
+                                <?php 
+                                foreach ($servicestaff as $staff) { ?>
+                                <option value="<?=$staff->id?>"><?=$staff->first_name?></option>
     
-<?php }?>
+                                <?php }?>
                                                         
-                                                    </select>
+                                </select>
                                                     
-                                                </div>
+                            </div>
                          </div>
 						 <div class="proom_1" style="display:none;">
-                                                <div class="form-group">Room
-                                         <input name="room_no" type="text" id="room_no" class="form-control " readonly/>
-										 <input type="hidden" name="room_cust" id="room_cust"/>
+                            <div class="form-group">Room
+                                <input name="room_no" type="text" id="room_no" class="form-control " readonly/>
+								<input type="hidden" name="room_cust" id="room_cust"/>
                                                     
-                                                </div>
+                            </div>
                          </div>
 						 <div class="modal fade" id="roomsdiv"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm" role="document">

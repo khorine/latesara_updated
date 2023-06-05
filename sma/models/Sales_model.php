@@ -968,11 +968,11 @@ public function getAllBarReceptionSalesByCustID($cust_id)
 
     //Added by HK
     public function removeBill($billId) {
-        // Delete record from reception_payments table
-        // $this->db->where('id', $billId);
-        // $this->db->delete('reception_payments');
+        // Delete record from payments table
+        $this->db->where('sale_id', $billId);
+        $this->db->delete('payments');
 
-        // Update sales table
+        //  Update sales table
         $data = array(
             'payment_status' => 'due',
             'pmethod' => null
