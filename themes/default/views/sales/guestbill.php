@@ -20,22 +20,22 @@
             }
         });
 
-        $('#bill-room-form').on('submit', function (e) {
-            e.preventDefault();
+        // $('#bill-room-form').on('submit', function (e) {
+        //     e.preventDefault();
 
-            var form = $(this);
-            $.ajax({
-                url: form.attr('action'),
-                method: form.attr('method'),
-                data: form.serialize(),
-                success: function (response) {
-                    console.log(response);
-                },
-                error: function (xhr, status, error) {
-                    console.log(xhr.responseText);
-                }
-            });
-        });
+        //     var form = $(this);
+        //     $.ajax({
+        //         url: form.attr('action'),
+        //         method: form.attr('method'),
+        //         data: form.serialize(),
+        //         success: function (response) {
+        //             console.log(response);
+        //         },
+        //         error: function (xhr, status, error) {
+        //             console.log(xhr.responseText);
+        //         }
+        //     });
+        // });
     });
 
     function recalculateTotalAmount() {

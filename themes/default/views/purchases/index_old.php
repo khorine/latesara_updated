@@ -15,8 +15,8 @@
             },
             "aoColumns": [{
                 "bSortable": false,
-                "mRender": checkbox
-            }, {"mRender": fld}, null, null, {"mRender": row_status}, {"mRender": currencyFormat}, {"mRender": currencyFormat}, {"mRender": currencyFormat}, {"mRender": row_status}, {"bSortable": false}],
+                "mRender": checkbox,
+            },null, {"mRender": fld}, null, null,null, {"mRender": row_status}, {"mRender": currencyFormat}, {"mRender": currencyFormat}, {"mRender": currencyFormat}, {"mRender": row_status}, {"bSortable": false}],
             'fnRowCallback': function (nRow, aData, iDisplayIndex) {
                 var oSettings = oTable.fnSettings();
                 nRow.id = aData[0];
@@ -26,21 +26,21 @@
             "fnFooterCallback": function (nRow, aaData, iStart, iEnd, aiDisplay) {
                 var total = 0, paid = 0, balance = 0;
                 for (var i = 0; i < aaData.length; i++) {
-                    total += parseFloat(aaData[aiDisplay[i]][5]);
-                    paid += parseFloat(aaData[aiDisplay[i]][6]);
-                    balance += parseFloat(aaData[aiDisplay[i]][7]);
+                    total += parseFloat(aaData[aiDisplay[i]][7]);
+                    paid += parseFloat(aaData[aiDisplay[i]][8]);
+                    balance += parseFloat(aaData[aiDisplay[i]][9]);
                 }
                 var nCells = nRow.getElementsByTagName('th');
-                nCells[5].innerHTML = currencyFormat(total);
-                nCells[6].innerHTML = currencyFormat(paid);
-                nCells[7].innerHTML = currencyFormat(balance);
+                nCells[7].innerHTML = currencyFormat(total);
+                nCells[8].innerHTML = currencyFormat(paid);
+                nCells[9].innerHTML = currencyFormat(balance);
             }
         }).fnSetFilteringDelay().dtFilter([
-            {column_number: 1, filter_default_label: "[<?=lang('date');?> (yyyy-mm-dd)]", filter_type: "text", data: []},
-            {column_number: 2, filter_default_label: "[<?=lang('ref_no');?>]", filter_type: "text", data: []},
-            {column_number: 3, filter_default_label: "[<?=lang('supplier');?>]", filter_type: "text", data: []},
-            {column_number: 4, filter_default_label: "[<?=lang('purchase_status');?>]", filter_type: "text", data: []},
-            {column_number: 8, filter_default_label: "[<?=lang('payment_status');?>]", filter_type: "text", data: []},
+            {column_number: 2, filter_default_label: "[<?=lang('date');?> (yyyy-mm-dd)]", filter_type: "text", data: []},
+            {column_number: 3, filter_default_label: "[<?=lang('ref_no');?>]", filter_type: "text", data: []},
+            {column_number: 4, filter_default_label: "[<?=lang('supplier');?>]", filter_type: "text", data: []},
+            {column_number: 6, filter_default_label: "[<?=lang('purchase_status');?>]", filter_type: "text", data: []},
+            {column_number: 10, filter_default_label: "[<?=lang('payment_status');?>]", filter_type: "text", data: []},
         ], "footer");
 
         <?php if($this->session->userdata('remove_pols')) { ?>
@@ -91,7 +91,7 @@
 <div class="box">
     <div class="box-header">
         <h2 class="blue"><i
-                class="fa-fw fa fa-star"></i><?= lang('purchases') . ' (' . ($warehouse_id ? $warehouse->name : lang('all_warehouses')) . ')'; ?>
+                class="fa-fw fa fa-star"></i><?= lang('orders') . ' (' . ($warehouse_id ? $warehouse->name : lang('all_warehouses')) . ')'; ?>
         </h2>
 
         <div class="box-icon">
@@ -137,9 +137,11 @@
                             <th style="min-width:30px; width: 30px; text-align: center;">
                                 <input class="checkbox checkft" type="checkbox" name="check"/>
                             </th>
+                                  <th><?php echo $this->lang->line("product_name"); ?></th>
                             <th><?php echo $this->lang->line("date"); ?></th>
                             <th><?php echo $this->lang->line("ref_no"); ?></th>
                             <th><?php echo $this->lang->line("supplier"); ?></th>
+                             <th><?php echo $this->lang->line("ordered_by"); ?></th>
                             <th><?php echo $this->lang->line("purchase_status"); ?></th>
                             <th><?php echo $this->lang->line("grand_total"); ?></th>
                             <th><?php echo $this->lang->line("paid"); ?></th>
@@ -150,7 +152,7 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <td colspan="10" class="dataTables_empty"><?= lang('loading_data_from_server'); ?></td>
+                            <td colspan="12" class="dataTables_empty"><?= lang('loading_data_from_server'); ?></td>
                         </tr>
                         </tbody>
                         <tfoot class="dtFilter">
@@ -160,6 +162,8 @@
                             </th>
                             <th></th>
                             <th></th>
+                            <th></th>
+                             <th></th>
                             <th></th>
                             <th></th>
                             <th><?php echo $this->lang->line("grand_total"); ?></th>

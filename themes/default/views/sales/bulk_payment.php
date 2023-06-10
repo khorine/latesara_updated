@@ -131,29 +131,20 @@
                             </div>
                         </div>
                         <div class="pcostcenter_1" style="display:none;">
-                            <div class="col-md-12">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            Cost Center Number
-                                            <select name="cost_center_no" id="cost_center_no_1" class="form-control cost_center_no">
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <?= lang("amount", "costcenter_1"); ?>
-                                            <input name="amount[]" type="text" id="costcenter_1" class="form-control kb-pad amount" required="required"/>
-                                        </div>
-                                    </div>
+                                <div class="form-group">Cost Center
+                                    <select name="cost_center_no" id="cost_center_no_1" class="form-control cost_center_no">
+                                    <option value="Walkin" selected>--Walkin--</option>
+    
+                                    <?php 
+                                    foreach ($costcenter as $center) { ?>
+                                        <option value="<?=$center->name?>"><?=$center->name?></option>
+    
+                                    <?php }?>
+                                                        
+                                    </select>
+                                                    
                                 </div>
-                            </div>
-                        </div>
+                         </div>
                         <div class="pgift_card_1">
                             <div class="col-md-12">
                                 <div class="row">

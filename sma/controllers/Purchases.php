@@ -50,9 +50,68 @@ class Purchases extends MY_Controller
         $this->page_construct('purchases/index', $meta, $this->data);
     }
 
+    // function getPurchases($warehouse_id = NULL)
+    // {
+    //    $this->sma->checkPermissions('index');
+
+    //     if (!$this->Owner && !$warehouse_id) {
+    //         $user = $this->site->getUser();
+    //         $warehouse_id = $user->warehouse_id;
+    //     }
+    //     $detail_link = anchor('purchases/view/$1', '<i class="fa fa-file-text-o"></i> ' . lang('purchase_details'));
+    //     $payments_link = anchor('purchases/payments/$1', '<i class="fa fa-money"></i> ' . lang('view_payments'), 'data-toggle="modal" data-target="#myModal"');
+    //     $add_payment_link = anchor('purchases/add_payment/$1', '<i class="fa fa-money"></i> ' . lang('add_payment'), 'data-toggle="modal" data-target="#myModal"');
+    //     $email_link = anchor('purchases/email/$1', '<i class="fa fa-envelope"></i> ' . lang('email_purchase'), 'data-toggle="modal" data-target="#myModal"');
+    //     $edit_link = anchor('purchases/edit/$1', '<i class="fa fa-edit"></i> ' . lang('edit_purchase'));
+    //     $pdf_link = anchor('purchases/pdf/$1', '<i class="fa fa-file-pdf-o"></i> ' . lang('download_pdf'));
+    //     $delete_link = "<a href='#' class='po' title='<b>" . $this->lang->line("delete_purchase") . "</b>' data-content=\"<p>"
+    //         . lang('r_u_sure') . "</p><a class='btn btn-danger po-delete' href='" . site_url('purchases/delete/$1') . "'>"
+    //         . lang('i_m_sure') . "</a> <button class='btn po-close'>" . lang('no') . "</button>\"  rel='popover'><i class=\"fa fa-trash-o\"></i> "
+    //         . lang('delete_purchase') . "</a>";
+    //     $action = '<div class="text-center"><div class="btn-group text-left">'
+    //         . '<button type="button" class="btn btn-default btn-xs btn-primary dropdown-toggle" data-toggle="dropdown">'
+    //         . lang('actions') . ' <span class="caret"></span></button>
+    //     <ul class="dropdown-menu pull-right" role="menu">
+    //         <li>' . $detail_link . '</li>
+    //         <li>' . $payments_link . '</li>
+    //         <li>' . $add_payment_link . '</li>
+    //         <li>' . $edit_link . '</li>
+    //         <li>' . $pdf_link . '</li>
+    //         <li>' . $email_link . '</li>
+    //         <li>' . $delete_link . '</li>
+    //     </ul>
+    // </div></div>';
+    //     //$action = '<div class="text-center">' . $detail_link . ' ' . $edit_link . ' ' . $email_link . ' ' . $delete_link . '</div>';
+
+    //     $this->load->library('datatables');
+    //     if ($warehouse_id) {
+    //         $this->datatables
+    //             ->select("purchases.id as id,product_name,purchases.date as date, reference_no, supplier,first_name, purchases.status as status, grand_total, paid, (grand_total-paid) as balance, payment_status")
+    //             ->from('purchases')
+    //                   ->join('users', 'users.id=purchases.created_by', 'left')
+    //                       ->join('purchase_items', 'purchase_items.purchase_id=purchases.id', 'left')
+    //             ->where('purchases.warehouse_id', $warehouse_id)
+    //              ->group_by('purchases.id');
+    //     } else {
+    //         $this->datatables
+    //             ->select("purchases.id as id,product_name,purchases.date as date, reference_no, supplier,first_name, purchases.status as status, grand_total, paid, (grand_total-paid) as balance, payment_status")
+    //             ->from('purchases')
+    //                   ->join('users', 'users.id=purchases.created_by', 'left')
+    //           ->join('purchase_items', 'purchase_items.purchase_id=purchases.id', 'left')
+    //          ->group_by('purchases.id');
+    //     }
+    //     if (!$this->Customer && !$this->Supplier && !$this->Owner && !$this->Admin) {
+    //         $this->datatables->where('created_by', $this->session->userdata('user_id'));
+    //     } elseif ($this->Supplier) {
+    //         $this->datatables->where('supplier_id', $this->session->userdata('user_id'));
+    //     }
+    //     $this->datatables->add_column("Actions", $action, "id");
+    //     echo $this->datatables->generate();
+    // }
+
     function getPurchases($warehouse_id = NULL)
     {
-       $this->sma->checkPermissions('index');
+        $this->sma->checkPermissions('index');
 
         if (!$this->Owner && !$warehouse_id) {
             $user = $this->site->getUser();
@@ -86,19 +145,13 @@ class Purchases extends MY_Controller
         $this->load->library('datatables');
         if ($warehouse_id) {
             $this->datatables
-                ->select("purchases.id as id,product_name,purchases.date as date, reference_no, supplier,first_name, purchases.status as status, grand_total, paid, (grand_total-paid) as balance, payment_status")
+                ->select("id, date, reference_no, supplier, status, grand_total, paid, (grand_total-paid) as balance, payment_status")
                 ->from('purchases')
-                      ->join('users', 'users.id=purchases.created_by', 'left')
-                          ->join('purchase_items', 'purchase_items.purchase_id=purchases.id', 'left')
-                ->where('purchases.warehouse_id', $warehouse_id)
-                 ->group_by('purchases.id');
+                ->where('warehouse_id', $warehouse_id);
         } else {
             $this->datatables
-                ->select("purchases.id as id,product_name,purchases.date as date, reference_no, supplier,first_name, purchases.status as status, grand_total, paid, (grand_total-paid) as balance, payment_status")
-                ->from('purchases')
-                      ->join('users', 'users.id=purchases.created_by', 'left')
-              ->join('purchase_items', 'purchase_items.purchase_id=purchases.id', 'left');
-             //->group_by('purchases.id');
+                ->select("id, date, reference_no, supplier, status, grand_total, paid, (grand_total-paid) as balance, payment_status")
+                ->from('purchases');
         }
         if (!$this->Customer && !$this->Supplier && !$this->Owner && !$this->Admin) {
             $this->datatables->where('created_by', $this->session->userdata('user_id'));
