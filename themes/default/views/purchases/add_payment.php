@@ -50,6 +50,7 @@
                                     <select name="paid_by" id="paid_by_1" class="form-control paid_by"
                                             required="required">
                                         <option value="cash"><?= lang("cash"); ?></option>
+                                        <option value="mpesa"><?= lang("mpesa"); ?></option>
                                         <option value="CC"><?= lang("cc"); ?></option>
                                         <option value="Cheque"><?= lang("cheque"); ?></option>
                                         <option value="other"><?= lang("other"); ?></option>

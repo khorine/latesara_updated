@@ -32,6 +32,7 @@ $lang['purchase_quantity']                  = "Purchase Quantity";
 $lang['please_select_warehouse']            = "Please select warehouse";
 $lang['purchase_by_csv']                    = "Add Purchase by CSV";
 $lang['received']                           = "Received";
+$lang['mpesa']                              = "Mpesa";
 $lang['more_options']                       = "More Options";
 $lang['add_standard_product']               = "Add Standard Product";
 $lang['product_code_is_required']           = "Product Code is required";
