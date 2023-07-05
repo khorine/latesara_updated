@@ -110,7 +110,11 @@ if ($modal) {
             <div style="clear:both;"></div>
             <table class="table table-striped table-condensed" border="1">
                 <tbody>
-				<tr><td style="text-align:center" colspan="2">Item</td><td align="centre">Qty</td></tr>
+				<tr>
+                    <td style="text-align:center" colspan="2">Item</td>
+                    <td align="centre">Sold Qty</td>
+                    <td align="centre">Rem Qty</td>
+                </tr>
                 <?php
                 $r = 1;
                 $tax_summary = array();
@@ -128,9 +132,11 @@ if ($modal) {
                         $tax_summary[$row->tax_code]['code'] = $row->tax_code;
                         $tax_summary[$row->tax_code]['rate'] = $row->tax_rate;
                     }
-                    echo '<tr style="font-size:15px"><td colspan="2">#:&nbsp;&nbsp;' . product_name($row->product_name)  ;
+                    echo '<tr style="font-size:15px"><td colspan="2">#:&nbsp;&nbsp;' . product_name($row->product_name);
+                    echo '<td>&nbsp' . number_format($row->QTY) . '</td>';
+                    echo '<td>&nbsp' . number_format($row->RemQty) . '</td></tr>';
                     $data7 = '#'. product_name($row->product_name) . '*' . $row->tax_code . '' . PHP_EOL;
-					echo '<td>&nbsp' . number_format($row->QTY) . '</td></tr>';
+					
 					$data8 = '' . $this->sma->formatNumber($row->QTY) . ' x ';
 
                     if ($row->item_discount != 0) {

@@ -206,7 +206,7 @@ if ($modal) {
                         <th class="text-right"><?= $this->sma->formatMoney($inv->bill_change+$inv->paid); ?></th>
                   </tr>-->
                  <!-- <tr style="font-size:15px"><td colspan="2"><br>Send Money: 0717 616 500</td><td align="center" colspan="2"><br>-- Adetha Muchai</td><td></td></tr>-->
-				 <tr style="font-size:20px"><td colspan="2"><br><b>Mpesa Till No:  8257060</b></td><td align="center" colspan="2"><br></td><td></td></tr>
+				 <tr style="font-size:20px"><td colspan="2"><br><b>MPESA TILL NO :  8257060</b></td><td align="center" colspan="2"><br></td><td></td></tr>
                 </tfoot>
             </table>
 

@@ -202,10 +202,39 @@ class Reports_model extends CI_Model
 
     public function getDailySales($year, $month)
     {
-   $myQuery = "SELECT DATE_FORMAT( date,  '%e' ) AS date, SUM( COALESCE( product_tax, 0 ) ) AS tax1, SUM( COALESCE( order_tax, 0 ) ) AS tax2, SUM( COALESCE( grand_total, 0 ) ) AS total, SUM( COALESCE( total_discount, 0 ) ) AS discount, SUM( COALESCE( shipping, 0 ) ) AS shipping
-			FROM " . $this->db->dbprefix('sales') . "
-			WHERE DATE_FORMAT( date,  '%Y-%m' ) =  '{$year}-{$month}'
-			GROUP BY DATE_FORMAT( date,  '%e' )";
+   $myQuery = "SELECT DATE_FORMAT(date, '%e') AS date,
+                    SUM(COALESCE(product_tax, 0)) AS tax1,
+                    SUM(COALESCE(order_tax, 0)) AS tax2,
+                    SUM(COALESCE(grand_total, 0)) AS total,
+                    SUM(COALESCE(total_discount, 0)) AS discount,
+                    SUM(COALESCE(shipping, 0)) AS shipping
+                    FROM " . $this->db->dbprefix('sales') . "
+                    WHERE DATE_FORMAT(date, '%Y-%m') = '{$year}-{$month}'
+                    AND return_id IS NULL
+                    GROUP BY DATE_FORMAT(date, '%e')";
+                    
+		//	$myQuery = "SELECT DATE_FORMAT( date,  '%e' ) AS date,SUM( COALESCE( item_tax, 0 ) ) AS tax1,SUM( COALESCE( order_tax, 0 ) ) AS tax2,SUM( COALESCE( subtotal, 0 ) ) AS total,SUM( COALESCE( item_discount, 0 ) ) AS discount,0 AS shipping
+				//	FROM " . $this->db->dbprefix('sales') . "," . $this->db->dbprefix('sale_items') . "
+				//	WHERE ".$this->db->dbprefix('sales').".id = ".$this->db->dbprefix('sale_items').".sale_id AND DATE_FORMAT( date,  '%Y-%m' ) =  '{$year}-{$month}'
+				//	GROUP BY DATE_FORMAT( date,  '%e' )";
+        $q = $this->db->query($myQuery, false);
+        if ($q->num_rows() > 0) {
+            foreach (($q->result()) as $row) {
+                $data[] = $row;
+            }
+            return $data;
+        }
+        return FALSE;
+    }
+
+    public function getDailySalesReturns($year, $month)
+    {
+   $myQuery = "SELECT DATE_FORMAT(date, '%e') AS date,
+                    SUM(COALESCE(grand_total, 0)) AS total_returns
+                    FROM " . $this->db->dbprefix('sales') . "
+                    WHERE DATE_FORMAT(date, '%Y-%m') = '{$year}-{$month}'
+                    AND return_id IS NULL
+                    GROUP BY DATE_FORMAT(date, '%e')";
 		//	$myQuery = "SELECT DATE_FORMAT( date,  '%e' ) AS date,SUM( COALESCE( item_tax, 0 ) ) AS tax1,SUM( COALESCE( order_tax, 0 ) ) AS tax2,SUM( COALESCE( subtotal, 0 ) ) AS total,SUM( COALESCE( item_discount, 0 ) ) AS discount,0 AS shipping
 				//	FROM " . $this->db->dbprefix('sales') . "," . $this->db->dbprefix('sale_items') . "
 				//	WHERE ".$this->db->dbprefix('sales').".id = ".$this->db->dbprefix('sale_items').".sale_id AND DATE_FORMAT( date,  '%Y-%m' ) =  '{$year}-{$month}'

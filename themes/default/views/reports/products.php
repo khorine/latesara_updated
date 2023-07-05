@@ -47,24 +47,24 @@ if ($this->input->post('cf6')) {
                 });
                 $.ajax({'dataType': 'json', 'type': 'POST', 'url': sSource, 'data': aoData, 'success': fnCallback});
             },
-            "aoColumns": [null, null, {"mRender": decimalFormat}, {"mRender": decimalFormat}, {"mRender": currencyFormat},{"mRender": currencyFormat}, {"mRender": currencyFormat}, {"mRender": currencyFormat}],
+            "aoColumns": [null, null, {"mRender": decimalFormat}, {"mRender": decimalFormat}, {"mRender": currencyFormat}, {"mRender": currencyFormat}, {"mRender": currencyFormat}],
             "fnFooterCallback": function (nRow, aaData, iStart, iEnd, aiDisplay) {
-                var pQty = 0, sQty = 0, pAmt = 0, sAmt = 0, pl = 0, sqamnt =0;
+                var pQty = 0, sQty = 0, rQty = 0, pAmt = 0, sAmt = 0; // pl = 0;
                 for (var i = 0; i < aaData.length; i++) {
                     pQty += parseFloat(aaData[aiDisplay[i]][2]);
-					pAmt += parseFloat(aaData[aiDisplay[i]][3]);
-                    sQty += parseFloat(aaData[aiDisplay[i]][4]);
-					sqamnt += parseFloat(aaData[aiDisplay[i]][5]);
+                    sQty += parseFloat(aaData[aiDisplay[i]][3]);
+                    rQty += parseFloat(aaData[aiDisplay[i]][4]);
+                    pAmt += parseFloat(aaData[aiDisplay[i]][5]);
                     sAmt += parseFloat(aaData[aiDisplay[i]][6]);
-                    pl += parseFloat(aaData[aiDisplay[i]][7]);
+                   //pl += parseFloat(aaData[aiDisplay[i]][7]);
                 }
                 var nCells = nRow.getElementsByTagName('th');
                 nCells[2].innerHTML = decimalFormat(parseFloat(pQty));
-				nCells[3].innerHTML = currencyFormat(parseFloat(pAmt));
-                nCells[4].innerHTML = decimalFormat(parseFloat(sQty));
-				nCells[5].innerHTML = currencyFormat(parseFloat(sqamnt));
+                nCells[3].innerHTML = decimalFormat(parseFloat(sQty));
+                nCells[4].innerHTML = decimalFormat(parseFloat(rQty));
+                nCells[5].innerHTML = currencyFormat(parseFloat(pAmt));
                 nCells[6].innerHTML = currencyFormat(parseFloat(sAmt));
-                nCells[7].innerHTML = currencyFormat(parseFloat(pl));
+                //nCells[7].innerHTML = currencyFormat(parseFloat(pl));
             }
         }).fnSetFilteringDelay().dtFilter([
             {column_number: 0, filter_default_label: "[<?=lang('product_code');?>]", filter_type: "text", data: []},
@@ -228,16 +228,16 @@ if ($this->input->post('cf6')) {
                             <th><?= lang("product_code"); ?></th>
                             <th><?= lang("product_name"); ?></th>
                             <th><?= lang("purchased"); ?></th>
-							<th><?= lang("purchased_amount"); ?></th>
                             <th><?= lang("sold"); ?></th>
-							<th><?= "Sold Cost" ?></th>
+                            <th><?= lang("Remaining"); ?></th>
+                            <th><?= lang("purchased_amount"); ?></th>
                             <th><?= lang("sold_amount"); ?></th>
-                            <th><?= lang("profit_loss"); ?></th>
+                            <!-- <th><?= lang("profit_loss"); ?></th> -->
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
-                            <td colspan="7" class="dataTables_empty"><?= lang('loading_data_from_server') ?></td>
+                            <td colspan="6" class="dataTables_empty"><?= lang('loading_data_from_server') ?></td>
                         </tr>
                         </tbody>
                         <tfoot class="dtFilter">
@@ -245,11 +245,11 @@ if ($this->input->post('cf6')) {
                             <th></th>
                             <th></th>
                             <th><?= lang("purchased"); ?></th>
-							<th><?= lang("purchased_amount"); ?></th>
                             <th><?= lang("sold"); ?></th>
-							<th><?= "Sold Cost" ?></th>
+                            <th><?= lang("remaining"); ?></th>
+                            <th><?= lang("purchased_amount"); ?></th>
                             <th><?= lang("sold_amount"); ?></th>
-                            <th><?= lang("profit_loss"); ?></th>
+                            <!-- <th><?= lang("profit_loss"); ?></th> -->
                         </tr>
                         </tfoot>
                     </table>

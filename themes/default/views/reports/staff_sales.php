@@ -1,21 +1,21 @@
 <?php
 
 $v = "";
- if($this->input->post('name')){
+/* if($this->input->post('name')){
   $v .= "&product=".$this->input->post('product');
-  } 
-// if ($this->input->post('paid_by')) {
-//     $v .= "&paid_by=" . $this->input->post('paid_by');
-// }
-// if ($this->input->post('department')) {
-//     $v .= "&department=" . $this->input->post('department');
-// }
-// if ($this->input->post('customer')) {
-//     $v .= "&customer=" . $this->input->post('customer');
-// }
-// if ($this->input->post('biller')) {
-//     $v .= "&biller=" . $this->input->post('biller');
-// }
+  } */
+if ($this->input->post('paid_by')) {
+    $v .= "&paid_by=" . $this->input->post('paid_by');
+}
+if ($this->input->post('department')) {
+    $v .= "&department=" . $this->input->post('department');
+}
+if ($this->input->post('customer')) {
+    $v .= "&customer=" . $this->input->post('customer');
+}
+if ($this->input->post('biller')) {
+    $v .= "&biller=" . $this->input->post('biller');
+}
 if ($this->input->post('warehouse')) {
     $v .= "&warehouse=" . $this->input->post('warehouse');
 }
@@ -41,7 +41,7 @@ if ($this->input->post('end_date')) {
             "aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "<?= lang('all') ?>"]],
             "iDisplayLength": <?= $Settings->rows_per_page ?>,
             'bProcessing': true, 'bServerSide': true,
-            'sAjaxSource': '<?= site_url('reports/getStaffSalesReport/?v=1' . $v) ?>',
+            'sAjaxSource': '<?= site_url('reports/getSalesReport/?v=1' . $v) ?>',
             'fnServerData': function (sSource, aoData, fnCallback) {
                 aoData.push({
                     "name": "<?= $this->security->get_csrf_token_name() ?>",

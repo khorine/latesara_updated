@@ -524,10 +524,10 @@
                                             href="<?= site_url('reports/quantity_alerts') ?>"><i
                                                 class="fa fa-bar-chart-o"></i><span
                                                 class="text"> <?= lang('product_quantity_alerts'); ?></span></a></li>
-								    <li id="reports_quantity_alerts" style="display:none"><a
+								    <!-- <li id="reports_quantity_alerts" style="display:none"><a
                                             href="<?= site_url('reports/stockSheetmngnt1/?user='.$this->session->userdata('user_id').'&sdate='.date('Y-m-d')) ?>"><i
                                                 class="fa fa-bar-chart-o"></i><span
-                                                class="text"> <?= "Stock Management" ?></span></a></li>
+                                                class="text"> <?= "Stock Management" ?></span></a></li> -->
 									<li id="customers_index"><a class="submenu" href="<?= site_url('customers/stockmm'); ?>"
                                                                 data-toggle="modal" data-target="#myModal"><i
                                                 class="fa fa-plus-circle"></i><span
@@ -553,9 +553,9 @@
 									<li id="reports_daily_sales"><a href="<?= site_url('reports/stocksheet/?user='.$this->session->userdata('user_id').'&sdate='.date('Y-m-d')) ?>"><i
                                                 class="fa fa-calendar-o"></i><span
                                                 class="text"> <?= lang('New_Stock_Sheet'); ?></span></a></li>
-									<li id="reports_daily_sales"><a href="<?= site_url('reports/storeStockSheet/?user='.$this->session->userdata('user_id').'&sdate='.date('Y-m-d')) ?>"><i
+									<!-- <li id="reports_daily_sales"><a href="<?= site_url('reports/storeStockSheet/?user='.$this->session->userdata('user_id').'&sdate='.date('Y-m-d')) ?>"><i
                                                 class="fa fa-calendar-o"></i><span
-                                                class="text"> <?= lang('Store_Stock_Sheet'); ?></span></a></li>												
+                                                class="text"> <?= lang('Store_Stock_Sheet'); ?></span></a></li>												 -->
                                     <li id="reports_monthly_sales"><a href="<?= site_url('reports/monthly_sales') ?>"><i
                                                 class="fa fa-calendar-o"></i><span
                                                 class="text"> <?= lang('monthly_sales'); ?></span></a></li>
@@ -568,9 +568,9 @@
                                     <?php }     
                                     if($Owner){ ?>       
                                     
-								<li id="reports_sales"><a href="<?= site_url('sales/saledet_report') ?>"><i
+								<!-- <li id="reports_sales"><a href="<?= site_url('sales/saledet_report') ?>"><i
                                                 class="fa fa-money"></i><span
-                                                class="text"> <?= lang('Food Costing'); ?></span></a></li>
+                                                class="text"> <?= lang('Food Costing'); ?></span></a></li> -->
                                     <li id="reports_payments"><a href="<?= site_url('reports/payments') ?>"><i
                                                 class="fa fa-money"></i><span
                                                 class="text"> <?= lang('payments_report'); ?></span></a></li>

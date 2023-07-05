@@ -86,14 +86,15 @@ class Products extends MY_Controller
         $this->load->library('datatables');
         if ($warehouse_id) {
             $this->datatables
-                ->select($this->db->dbprefix('warehouses_products') . ".product_id as productid, " . $this->db->dbprefix('products') . ".image as image, " . $this->db->dbprefix('products') . ".code as code, " . $this->db->dbprefix('products') . ".name as name, " . $this->db->dbprefix('categories') . ".name as cname," . $this->db->dbprefix('subcategories') . ".name as scname, cost as cost, price as price,". $this->db->dbprefix('warehouses_products') . ".quantity as quantity, unit, " . $this->db->dbprefix('warehouses_products') . ".quantity as quantity, rack as rack, alert_quantity", FALSE)
+                ->select($this->db->dbprefix('warehouses_products') . ".product_id as productid, " . $this->db->dbprefix('products') . ".image as image, " . $this->db->dbprefix('products') . ".code as code, " . $this->db->dbprefix('products') . ".name as name, " . $this->db->dbprefix('categories') . ".name as cname," . $this->db->dbprefix('subcategories') . ".name as scname, cost as cost, price as price, " . $this->db->dbprefix('warehouses_products') . ".quantity as quantity," . $this->db->dbprefix('products') . ".unit as unit, " . $this->db->dbprefix('warehouses_products') . ".rack as rack, alert_quantity", FALSE)
                 ->from('warehouses_products')
                 ->join('products', 'products.id=warehouses_products.product_id', 'left')
                 ->join('categories', 'products.category_id=categories.id', 'left')
-				->join('subcategories', 'products.subcategory_id=subcategories.id', 'left')
+                ->join('subcategories', 'products.subcategory_id=subcategories.id', 'left')
                 ->where('warehouses_products.warehouse_id', $warehouse_id)
                 //->where('warehouses_products.quantity !=', 0)
                 ->group_by("warehouses_products.product_id");
+
         } else {
             $this->datatables
                 ->select($this->db->dbprefix('products') . ".id as productid, " . $this->db->dbprefix('products') . ".image as image, " . $this->db->dbprefix('products') . ".code as code, " . $this->db->dbprefix('products') . ".name as name, " . $this->db->dbprefix('categories') . ".name as cname," . $this->db->dbprefix('subcategories') . ".name as scname, cost as cost, price as price, '' as quantity, unit, NULL as rack, alert_quantity", FALSE)
