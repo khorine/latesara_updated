@@ -163,7 +163,7 @@ if ($modal) {
           <!--    <img src="<?//= base_url() . 'assets/uploads/logos/' . $biller->logo; ?>" alt="<?//= $biller->company; ?>">
 <!--            <h3 style="text-transform:uppercase;"><b>$inv->id$biller->company != '-' ? $biller->company : $biller->name; ?></b></h3>-->
              <h6 style="text-transform:uppercase;"><?= $biller->company != '-' ? $biller->company : $biller->name; ?></h6>
- <h6 style="text-transform:uppercase;"><b>UNPAID ORDER NO: </b><?= $inv->id; ?></h6>
+ <h6 style="text-transform:uppercase;"><b>UNPAID BILL NO: </b><?= $inv->id; ?></h6>
             <?php
            echo "<p>" //. 
               //  "<br>" . lang("tel") . ": " . $biller->phone . "<br>";

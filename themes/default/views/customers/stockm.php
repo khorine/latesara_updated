@@ -39,20 +39,6 @@
                 </div>
 				 </div>
 				</div>
-				<div class="row">
-				<div class="col-lg-6"> 
-				 <div class="form-group">
-				   <?php
-                                        $wh[''] = '';
-                                        foreach ($warehouses as $warehouse) {
-                                            $wh[$warehouse->id] = $warehouse->name;
-                                        }
-                                        echo form_dropdown('stockwarehouse', $wh, (isset($_POST['warehouse']) ? $_POST['warehouse'] : $Settings->default_warehouse), 'id="stockwarehouse" class="form-control pos-input-tip" data-placeholder="' . $this->lang->line("select") . ' ' . $this->lang->line("warehouse") . '" required="required" style="width:100%;" ');
-                                        ?>
-				
-					</div>
-				 </div>
-				</div>
 
 
         </div>
@@ -91,9 +77,7 @@
     $sdate = $( "#sdate" ).val();
 		$edate = $( "#edate" ).val();
 		$user = $( "#user" ).val();
-		$stockwarehouse = $( "#stockwarehouse" ).val(); 
-	
-        window.open("../../latesara/reports/stockSheetmngnt/?sdate="+$sdate+"&edate="+$edate+"&user="+$user+"&stockwarehouse="+$stockwarehouse);
+        window.open("../../tessarabistro/reports/stockSheetmngnt/?sdate="+$sdate+"&edate="+$edate+"&user="+$user);
 
     });
     });

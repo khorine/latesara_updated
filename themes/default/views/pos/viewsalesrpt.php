@@ -79,7 +79,7 @@ if ($modal) {
           <!--    <img src="<?//= base_url() . 'assets/uploads/logos/' . $biller->logo; ?>" alt="<?//= $biller->company; ?>">
 <!--            <h3 style="text-transform:uppercase;"><b>$inv->id$biller->company != '-' ? $biller->company : $biller->name; ?></b></h3>-->
              <h5 style="text-transform:uppercase;"><b><?= $biller->company != '-' ? $biller->company : $biller->name; ?></b></h5>
- <h4 style="text-transform:uppercase;"><b> PAYMENTS REPORT </b></h4>
+ <h4 style="text-transform:uppercase;"><b> SUMMARY REPORT </b></h4>
  <h4 ><b> Bar/Restaurant Sales </b></h4>
  
             <?php
@@ -153,18 +153,6 @@ if ($modal) {
 					echo '<td>&nbsp' . number_format($row->amnt) . '</td></tr>';
 					                }
 				}
-				foreach ($barduesales as $roww) {
-				   	echo '<tr style="font-size:15px"><td colspan="2">#:&nbsp;&nbsp; Due'  ;
-                  
-					echo '<td>&nbsp' . number_format($roww->amnt) . '</td></tr>'; 
-					$totalbar = $totalbar + $roww->amnt;
-				}
-				foreach ($prevpdsales as $rowww) {
-			echo '<tr style="font-size:15px"><td colspan="2">#:&nbsp;&nbsp; Prev Paid Bills'  ;
-                  
-					echo '<td>&nbsp' . number_format($rowww->amnt) . '</td></tr>'; 
-					$totalbar = $totalbar + $rowww->amnt;
-				}
                 ?>
 			<tr><td style="text-align:center;border-color: black !important;" border="1" colspan="2"><b>Bar Total </b></td><td align="centre" style="border-color: black !important;" border="1"><?php echo number_format($totalbar) ; ?></td></tr>
 				<tr><td style="text-align:center;border-color: black !important;" colspan="3"  border="1">Restaurant</td></tr>
@@ -210,7 +198,6 @@ if ($modal) {
 					echo '<td>&nbsp' . number_format($roww->amnt) . '</td></tr>';
 					                }
 				}
-				
                 ?>
 				<tr><td style="text-align:center;border-color: black !important;" border="1" colspan="2"><b>Restaurant Total </b></td><td align="centre" style="border-color: black !important;" border="1"> &nbsp;&nbsp;<?php echo number_format($totalrest) ; ?></td></tr>
 				

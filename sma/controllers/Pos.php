@@ -17,6 +17,7 @@ class Pos extends MY_Controller
         }
 
         $this->load->model('pos_model');
+        $this->load->model('products_model');
         $this->load->model('auth_model');
         $this->load->helper('text');
         $this->pos_settings = $this->pos_model->getSetting();
@@ -55,7 +56,7 @@ class Pos extends MY_Controller
 
        if (!$this->Owner && !$warehouse_id) {
        $user = $this->site->getUser();
-         $warehouse_id = $user->warehouse_id;
+          $warehouse_id = $user->warehouse_id;
        }
 	   $combine_bill = anchor('pos/combine_bill/$1', '<i class="fa fa-money"></i> Combine Order/Bill' , 'data-toggle="modal" data-target="#myModal"');
         $detail_link = anchor('pos/billview/$1', '<i class="fa fa-file-text-o"></i> Print Bill'/* . lang('view_receipt')*/);
@@ -71,7 +72,7 @@ class Pos extends MY_Controller
             . lang('r_u_sure') . "</p><a class='btn btn-danger po-delete' href='" . site_url('sales/delete/$1') . "'>"
             . lang('i_m_sure') . "</a> <button class='btn po-close'>" . lang('no') . "</button>\"  rel='popover'><i class=\"fa fa-trash-o\"></i> "
             . lang('delete_sale') . "</a>";
-			 if ($this->Owner || $this->session->userdata('user_id') =='74' || $this->session->userdata('user_id') =='70') { // allow bar users
+			 if ($this->Owner) {
         $action = '<div class="text-center"><div class="btn-group text-left">'
             . '<button type="button" class="btn btn-default btn-xs btn-primary dropdown-toggle" data-toggle="dropdown">'
             . lang('actions') . ' <span class="caret"></span></button>
@@ -84,7 +85,7 @@ class Pos extends MY_Controller
             <li>' . $add_delivery_link . '</li>
             <li>' . $email_link . '</li>
             <li>' . $return_link . '</li>
-           
+            <li>' . $delete_link . '</li>
 			 <li>' . $mpesa_link . '</li>
            
         </ul>
@@ -98,8 +99,8 @@ class Pos extends MY_Controller
             <li>' . $add_payment_link . '</li>
             <li>' . $detail_link . '</li>
             <li>' . $payments_link . '</li>
-          
-          
+            <li>' . $edit_link . '</li>
+            <li>' . $return_link . '</li>
            
         </ul>
     </div></div>'; 
@@ -121,27 +122,25 @@ class Pos extends MY_Controller
         $this->load->library('datatables');
         if ($warehouse_id) {
             $this->datatables
-                ->select($this->db->dbprefix('sales').".id as id, date, ".$this->db->dbprefix('sales').".id as reference_no, ".$this->db->dbprefix('sales').".chef, ".$this->db->dbprefix('sales').".table_id,".$this->db->dbprefix('warehouses').".name,GROUP_CONCAT(CONCAT(" . $this->db->dbprefix('sale_items') . ".product_name, ' (', " . $this->db->dbprefix('sale_items') . ".quantity, ')') SEPARATOR '\n') as iname, ".$this->db->dbprefix('sales').".grand_total, ".$this->db->dbprefix('sales').".paid, (".$this->db->dbprefix('sales').".grand_total-".$this->db->dbprefix('sales').".paid) as balance, ".$this->db->dbprefix('sales').".payment_status, companies.email as cemail")
+                ->select($this->db->dbprefix('sales').".id as id, date, ".$this->db->dbprefix('sales').".id as reference_no, ".$this->db->dbprefix('sales').".chef, ".$this->db->dbprefix('sales').".table_id,GROUP_CONCAT(CONCAT(" . $this->db->dbprefix('sale_items') . ".product_name, ' (', " . $this->db->dbprefix('sale_items') . ".quantity, ')') SEPARATOR '\n') as iname, ".$this->db->dbprefix('sales').".grand_total, ".$this->db->dbprefix('sales').".paid, (".$this->db->dbprefix('sales').".grand_total-".$this->db->dbprefix('sales').".paid) as balance, ".$this->db->dbprefix('sales').".payment_status, companies.email as cemail")
                 ->from('sales')
                 ->join('companies', 'companies.id=sales.customer_id', 'left')
 				->join('sale_items', 'sale_items.sale_id=sales.id', 'left')
-				->join('warehouses', 'warehouses.id=sales.warehouse_id', 'left')
-               //->where('sales.warehouse_id', $warehouse_id)
+               ->where('sales.warehouse_id', $warehouse_id)
 			   ->where('sales.payment_status <> "paid"')
                 ->group_by('sales.id');
         } else {
             $this->datatables
-                ->select($this->db->dbprefix('sales').".id as id, date, ".$this->db->dbprefix('sales').".id as reference_no, ".$this->db->dbprefix('sales').".chef, ".$this->db->dbprefix('sales').".table_id,".$this->db->dbprefix('warehouses').".name,GROUP_CONCAT(CONCAT(" . $this->db->dbprefix('sale_items') . ".product_name, ' (', " . $this->db->dbprefix('sale_items') . ".quantity, ')') SEPARATOR '\n') as iname, ".$this->db->dbprefix('sales').".grand_total, ".$this->db->dbprefix('sales').".paid, (".$this->db->dbprefix('sales').".grand_total-".$this->db->dbprefix('sales').".paid) as balance, ".$this->db->dbprefix('sales').".payment_status, sma_companies.email as cemail")
+                ->select($this->db->dbprefix('sales').".id as id, date, ".$this->db->dbprefix('sales').".id as reference_no, ".$this->db->dbprefix('sales').".chef, ".$this->db->dbprefix('sales').".table_id,GROUP_CONCAT(CONCAT(" . $this->db->dbprefix('sale_items') . ".product_name, ' (', " . $this->db->dbprefix('sale_items') . ".quantity, ')') SEPARATOR '\n') as iname, ".$this->db->dbprefix('sales').".grand_total, ".$this->db->dbprefix('sales').".paid, (".$this->db->dbprefix('sales').".grand_total-".$this->db->dbprefix('sales').".paid) as balance, ".$this->db->dbprefix('sales').".payment_status, sma_companies.email as cemail")
                 ->from('sales')
                 ->join('companies', 'companies.id=sales.customer_id', 'left')
 				->join('sale_items', 'sale_items.sale_id=sales.id', 'left')
-				->join('warehouses', 'warehouses.id=sales.warehouse_id', 'left')
 				->where('sales.payment_status <> "paid"')
                 ->group_by('sales.id');
         }
         $this->datatables->where('pos', 1);
 		//die($this->session->userdata('user_id'));
-        if (!$this->Customer && !$this->Supplier && !$this->Owner && !$this->Admin && $this->session->userdata('user_id') !='70' && $this->session->userdata('user_id') !='74') { // allow some users access all orders/bills
+        if (!$this->Customer && !$this->Supplier && !$this->Owner && !$this->Admin && $this->session->userdata('user_id') !='43' && $this->session->userdata('user_id') !='47') { // allow some users access all orders/bills
           $this->datatables->where('created_by', $this->session->userdata('user_id'));
         }
 		elseif ($this->Customer) {
@@ -745,6 +744,7 @@ class Pos extends MY_Controller
 
     function getProductDataByCode($code = NULL, $warehouse_id = NULL)
     {
+        
         $this->sma->checkPermissions('index');
         if ($this->input->get('code')) {
             $code = $this->input->get('code', TRUE);
@@ -787,6 +787,7 @@ class Pos extends MY_Controller
             }
             $row->quantity = 0;
             $pis = $this->pos_model->getPurchasedItems($row->id, $warehouse_id, $row->option);
+            $qtys = $this->products_model->getAllWarehousesWithPQWR($row->id, $warehouse_id);
             if($pis){
                 foreach ($pis as $pi) {
                     $row->quantity += $pi->quantity_balance;
@@ -816,6 +817,9 @@ class Pos extends MY_Controller
             }
             $row->real_unit_price = $row->price;
             $combo_items = FALSE;
+             foreach ($qtys as $qty) {
+                        $row->quantity = $qty->quantity;
+                    }
             if ($row->tax_rate) {
                   
                 $tax_rate = $this->site->getTaxRateByID($row->tax_rate);
@@ -991,14 +995,12 @@ class Pos extends MY_Controller
 		if ($this->input->get('todate')) {
             $tdate = $this->input->get('todate').' 09:59:59';
         } 
-		$warehouseid = $this->input->get('warehouseid');
 		$user_id = $this->session->userdata('user_id');
 		$this->data['users'] = $this->pos_model->getUserByID($user_id);
         $this->load->helper('text');
         $this->data['error'] = (validation_errors() ? validation_errors() : $this->session->flashdata('error'));
         $this->data['message'] = $this->session->flashdata('message');
-        $this->data['rows'] = $this->pos_model->getAllprdctsales($sdate,$tdate,$warehouseid);
-		$this->data['warehouse'] = $this->site->getWarehouseByID($warehouseid);
+        $this->data['rows'] = $this->pos_model->getAllprdctsales($sdate,$tdate);
 		$this->data['start'] = $sdate;
 		$this->data['end'] = $tdate;
                $this->data['pos'] = $this->pos_model->getSetting();
@@ -1010,10 +1012,10 @@ class Pos extends MY_Controller
     {
         $this->sma->checkPermissions('index');
        if ($this->input->get('startdate')) {
-            $sdate = $this->input->get('startdate').' 07:00:00';
+            $sdate = $this->input->get('startdate').' 10:00:00';
         } 
 		if ($this->input->get('todate')) {
-            $tdate = $this->input->get('todate').' 06:59:59';
+            $tdate = $this->input->get('todate').' 09:59:59';
         } 
 		$user_id = $this->session->userdata('user_id');
 		$this->data['users'] = $this->pos_model->getUserByID($user_id);
@@ -1021,8 +1023,6 @@ class Pos extends MY_Controller
         $this->data['error'] = (validation_errors() ? validation_errors() : $this->session->flashdata('error'));
         $this->data['message'] = $this->session->flashdata('message');
         $this->data['rows'] = $this->pos_model->getPaymntTypesales($sdate,$tdate);
-		$this->data['prevpdsales'] = $this->pos_model->getPrevPaymnt($sdate,$tdate);
-		$this->data['barduesales'] = $this->pos_model->getUpaidsales_departmentwise($sdate,$tdate,'Bar');
 		$this->data['barsales'] = $this->pos_model->getPaymntTypesales_departmentwise($sdate,$tdate,'Bar');
 		 $this->data['restsales'] = $this->pos_model->getPaymntTypesales_departmentwise($sdate,$tdate,'Rest');
 		  $this->data['servicesales'] = $this->pos_model->getPaymntTypesales_departmentwise($sdate,$tdate,'Service');
@@ -1172,15 +1172,6 @@ class Pos extends MY_Controller
                 'paypal_pro' => $this->input->post('paypal_pro'),
                 'stripe' => $this->input->post('stripe'),
                 'rounding' => $this->input->post('rounding'),
-                'custom_theme1' => $this->input->post('theme1'),
-                'custom_theme2' => $this->input->post('theme2'),
-                'custom_theme3' => $this->input->post('theme3'),
-                'custom_theme4' => $this->input->post('theme4'),
-                'custom_theme5' => $this->input->post('theme5'),
-                'custom_theme6' => $this->input->post('theme6'),
-                'custom_theme7' => $this->input->post('theme7'),
-                'custom_theme8' => $this->input->post('theme8'),
-                'custom_theme9' => $this->input->post('theme9'),
             );
             $payment_config = array(
                 'APIUsername' => $this->input->post('APIUsername'),
@@ -1849,7 +1840,9 @@ $result=$this->db->query("select name from sma_companies where customer_group_na
             $this->data['error'] = (validation_errors() ? validation_errors() : $this->session->flashdata('error'));
 
             $sale = $this->pos_model->getInvoiceByID($id);
-			
+            $timings = $this->site->getShiftime();
+			$sdate = $timings->shift_start; //2023-01-25 09:00
+			$tdate = $timings->shift_end; //2023-01-26 09:00
 			$user_id = $this->session->userdata('user_id');
 			$tableid = $sale->table_id;
 			if ($this->Owner || $this->Admin) {
@@ -1857,11 +1850,11 @@ $result=$this->db->query("select name from sma_companies where customer_group_na
 							FROM sma_sales WHERE id <> '$id' AND payment_status='due'  GROUP BY sma_sales.id")->result();
 			}else if ($user_id == '43'|| $user_id == '47' ){ //counter ids
 			$q = $this->db->query("SELECT sma_sales.id as id,date,reference_no, biller, customer, grand_total, paid, (grand_total-paid) as balance, payment_status
-							FROM sma_sales WHERE id <> '$id'  AND payment_status='due' GROUP BY sma_sales.id")->result();	
+							FROM sma_sales WHERE id <> '$id'  AND payment_status='due'  GROUP BY sma_sales.id")->result();	
 			}
 			else{
 				$q = $this->db->query("SELECT sma_sales.id as id,date,reference_no, biller, customer, grand_total, paid, (grand_total-paid) as balance, payment_status
-							FROM sma_sales WHERE id <> '$id' AND created_by ='$user_id' AND payment_status='due' GROUP BY sma_sales.id")->result();
+							FROM sma_sales WHERE id <> '$id' AND created_by ='$user_id'  AND payment_status='due' GROUP BY sma_sales.id")->result();
 
 			}
 			//die("SELECT sma_sales.id as id,date,reference_no, biller, customer, grand_total, paid, (grand_total-paid) as balance, payment_status

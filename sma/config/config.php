@@ -20,7 +20,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 $config['site_base'] ='';
-//$config['site_base'] ='https://techsavanna.technology/ileplace/';
+//$config['site_base'] ='http://192.168.0.103/mpos/';
+// $config['site_base'] ='http://192.168.0.125/mpos/';
 //$config['site_base'] = 'http://192.168.43.48/eastbiteposii/';
 /*
 |--------------------------------------------------------------------------

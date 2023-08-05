@@ -74,7 +74,7 @@ function product_name($name)
         <div class="text-center">
 
  <h4 style="text-transform:uppercase;"><b><?= lang('Stock_Sheet_Report'); ?> </b></h4>
- <h4 ><b>Tessara Bistro</b></h4>
+ <h4 ><b>TESSARA BISTRO & GARDEN</b></h4>
   <h4 ><b>Location: Bar</b></h4>
  <div class="text-left"> <h5><b>Date:   <?php echo '  '.date('d-m-Y',strtotime("yesterday"));?></b></h5></div>
 

@@ -80,7 +80,7 @@ if ($modal) {
 <!--            <h3 style="text-transform:uppercase;"><b>$inv->id$biller->company != '-' ? $biller->company : $biller->name; ?></b></h3>-->
              <h5 style="text-transform:uppercase;"><b><?= $biller->company != '-' ? $biller->company : $biller->name; ?></b></h5>
  <h4 style="text-transform:uppercase;"><b> SALES PRODUCT WISE </b></h4>
- <h4 style="text-transform:uppercase;"><b> <?= $warehouse->name; ?> </b></h4>
+ 
             <?php
            //echo "<br>" . lang("tel") . ": " . $biller->phone . "<br>";
             ?>

@@ -119,7 +119,16 @@ class Site extends CI_Model
         }
         return FALSE;
     }
+    public function getShiftime()
+    {
+        $this->db->order_by('id', "desc")->limit(1);
+        $q = $this->db->get_where('shift_timings');
+        if ($q->num_rows() > 0) {
+            return $q->row();
+        }
 
+        return FALSE;
+    }
     public function getAllTaxRates() {
         $q = $this->db->get('tax_rates');
         if ($q->num_rows() > 0) {
@@ -167,9 +176,7 @@ class Site extends CI_Model
     }
 
     public function getAllWarehouses() {
-		 $this->db->select('*')
-		       	->order_by('name');
-        $q = $this->db->get_where('warehouses',array('active' => '1'));
+        $q = $this->db->get('warehouses');
         if ($q->num_rows() > 0) {
             foreach (($q->result()) as $row) {
                 $data[] = $row;

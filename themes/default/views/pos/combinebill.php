@@ -78,21 +78,14 @@ if ($modal) {
         <div class="text-center">
           <!--    <img src="<?//= base_url() . 'assets/uploads/logos/' . $biller->logo; ?>" alt="<?//= $biller->company; ?>">
 <!--            <h3 style="text-transform:uppercase;"><b>$inv->id$biller->company != '-' ? $biller->company : $biller->name; ?></b></h3>-->
-            <h5 style="text-transform:uppercase;font-size:18px"><b><?= "TESSARA BISTRO "?></b></h5>
-                <h6 >MIREMA DRIVE<h6 >  
-                <h6 >NAIROBI</h6>
-				
+            <h5 style="text-transform:uppercase;font-size:18px"><b><?= "TESSARA BISTRO & GARDEN"?></b></h5>
+				<h6 >NAIROBI</h6>
+				<h6 >Mirema Drive<h6 >
 				
 
- <h6 style="text-transform:uppercase;font-size:16px"><b>ORDER NO: </b> <?php
- $t=1;
+ <h6 style="text-transform:uppercase;font-size:16px"><b> BILL NO: </b> <?php
  foreach($billnos as $row1){
-	 $t++;
-	 if($t % 5 == 0)
-    {
-        echo "<br>";
-    }
-	 echo '<b>'.$row1->id.' ,</b>';
+	 echo '<b>'.$row1->id.',</b>';
  }
  ?></h6>
             <?php
@@ -118,7 +111,7 @@ if ($modal) {
            // echo lang("customer") . ": " . $inv->customer . "   -    "."No of Customer(s) : ". $inv->count_cust.  "<br>";
            // echo "Cashier" . ": " . $inv->cashier . "</br>";
            // echo "Chef" . ": " . $inv->chef . "</br>";
-            echo "<span style='font-size:16px'>".lang("date") . ": " . $this->sma->hrld(date('Y-m-d H:i:s')) . "</p></span>";
+            echo "<span style='font-size:16px'>".lang("date") . ": " . $this->sma->hrld($start) . "</p></span>";
            
             ?>
             <div style="clear:both;"></div>
@@ -206,39 +199,12 @@ if ($modal) {
                         <th class="text-right"><?= $this->sma->formatMoney($inv->bill_change+$inv->paid); ?></th>
                   </tr>-->
                  <!-- <tr style="font-size:15px"><td colspan="2"><br>Send Money: 0717 616 500</td><td align="center" colspan="2"><br>-- Adetha Muchai</td><td></td></tr>-->
-				 <tr style="font-size:20px"><td colspan="2"><br><b>Mpesa Till No:  8257060</b></td><td align="center" colspan="2"><br></td><td></td></tr>
+				 <tr style="font-size:15px"><td colspan="2"><br>Mpesa Till No:  9783319</td><td align="center" colspan="2"><br></td><td></td></tr>
                 </tfoot>
             </table>
-
-            
 			
-                <?php
-        
-                $themes = array(
-                    $pos_settings->custom_theme1,
-                    $pos_settings->custom_theme2,
-                    $pos_settings->custom_theme3,
-                    $pos_settings->custom_theme4,
-                    $pos_settings->custom_theme5,
-                    $pos_settings->custom_theme6,
-                    $pos_settings->custom_theme7,
-                    $pos_settings->custom_theme8,
-                    $pos_settings->custom_theme9,
-                );
-
-                if($themes[0] !=""){ ?>
-                    <div class="well well-sm" style="text-align: left"> 
-                    <?php
-                    echo "<b style='font-size:18px'>TESSARA BISTRO NIGHT THEMES </b><br>";
-                }
-                foreach ($themes as $theme){
-                    if ($theme != ""){
-                        echo "<b style='font-size:15px'>". $theme . "</b><br>";
-                    }
-                }
-                ?>
-                </div>
-                <div class="well well-sm" style="text-align: center">
+			<div class="well well-sm" style="text-align: center">
+                <?php //echo "MPESA TILL : 686569"; ?>
                 
                 <?php echo "<< THANK YOU >>";
 echo '<p><br>Developed by Techsavanna Ltd :<br>info@techsavanna.technology  </p>';				?>

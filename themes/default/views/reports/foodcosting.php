@@ -79,7 +79,7 @@ if ($modal) {
           <!--    <img src="<?//= base_url() . 'assets/uploads/logos/' . $biller->logo; ?>" alt="<?//= $biller->company; ?>">
 <!--            <h3 style="text-transform:uppercase;"><b>$inv->id$biller->company != '-' ? $biller->company : $biller->name; ?></b></h3>-->
              <h5 style="text-transform:uppercase;"><b><?= $biller->company != '-' ? $biller->company : $biller->name; ?></b></h5>
- <h4 style="text-transform:uppercase;"><b> Tessara Bistro </b></h4>
+ <h4 style="text-transform:uppercase;"><b>TESSARA BISTRO & GARDEN</b></h4>
  <h4 ><b> FOOD COSTING</b></h4>
  
             <?php

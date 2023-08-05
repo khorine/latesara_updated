@@ -86,7 +86,7 @@ class Products extends MY_Controller
         $this->load->library('datatables');
         if ($warehouse_id) {
             $this->datatables
-                ->select($this->db->dbprefix('warehouses_products') . ".product_id as productid, " . $this->db->dbprefix('products') . ".image as image, " . $this->db->dbprefix('products') . ".code as code, " . $this->db->dbprefix('products') . ".name as name, " . $this->db->dbprefix('categories') . ".name as cname," . $this->db->dbprefix('subcategories') . ".name as scname, cost as cost, price as price,". $this->db->dbprefix('warehouses_products') . ".quantity as quantity, unit, " . $this->db->dbprefix('warehouses_products') . ".quantity as quantity, rack as rack, alert_quantity", FALSE)
+                ->select($this->db->dbprefix('warehouses_products') . ".product_id as productid, " . $this->db->dbprefix('products') . ".image as image, " . $this->db->dbprefix('products') . ".code as code, " . $this->db->dbprefix('products') . ".name as name, " . $this->db->dbprefix('categories') . ".name as cname," . $this->db->dbprefix('subcategories') . ".name as scname, cost as cost, price as price, '' as quantity, unit, " . $this->db->dbprefix('warehouses_products') . ".rack as rack, alert_quantity", FALSE)
                 ->from('warehouses_products')
                 ->join('products', 'products.id=warehouses_products.product_id', 'left')
                 ->join('categories', 'products.category_id=categories.id', 'left')
@@ -1981,8 +1981,6 @@ class Products extends MY_Controller
        // print_r($this->input->post());
         // die();
         $count = $this->input->post('count');
-		$warehouseid = $this->input->post('warehouseid');
-		//$warehouseid = 37;
         //echo $this->input->post($name);
            // if ($this->Owner || $this->Admin) {
                 $date = $this->sma->fld($this->input->post('stdate'));
@@ -2012,7 +2010,7 @@ class Products extends MY_Controller
                 'product_id' => $prdctdet->id,
                 'type' => $type,
                 'quantity' =>$quantity,
-                'warehouse_id' => $warehouseid,
+                'warehouse_id' => '32',
                 'option_id' => '',
                 'note' => $this->sma->clear_tags('Physical Stock take'),
                 'created_by' => $this->session->userdata('user_id')

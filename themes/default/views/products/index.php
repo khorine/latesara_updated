@@ -134,7 +134,7 @@
                                 }
                             }
                             ?>
-                            <th><?= lang("quantity") ?></th>
+                            <th>-</th>
                             <th><?= lang("product_unit") ?></th>
                             <th><?= lang("rack") ?></th>
                             <th><?= lang("alert_quantity") ?></th>

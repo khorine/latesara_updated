@@ -22,30 +22,29 @@
             "aoColumns": [{
                 "bSortable": false,
                 "mRender": checkbox
-            }, {"mRender": fld}, null, null, null,null,{
+            }, {"mRender": fld}, null, null, null,{
                 "bSearchable": false,
                 "mRender": pqFormat
             }, {"mRender": currencyFormat}, {"mRender": currencyFormat}, {"mRender": currencyFormat}, {"mRender": row_status}, {"bSortable": false}],
-            // "fnFooterCallback": function (nRow, aaData, iStart, iEnd, aiDisplay) {
-            //    // var gtotal = 0, paid = 0, balance = 0;
-            // //     for (var i = 0; i < aaData.length; i++) {
-            // //         gtotal += parseFloat(aaData[aiDisplay[i]][7]);
-            // //         paid += parseFloat(aaData[aiDisplay[i]][8]);
-            // //         balance += parseFloat(aaData[aiDisplay[i]][9]);
-            // //     }
-            // //     var nCells = nRow.getElementsByTagName('th');
-            // //     nCells[7].innerHTML = currencyFormat(parseFloat(gtotal));
-            // //     nCells[8].innerHTML = currencyFormat(parseFloat(paid));
-            // //     nCells[9].innerHTML = currencyFormat(parseFloat(balance));
-            // // }
+            "fnFooterCallback": function (nRow, aaData, iStart, iEnd, aiDisplay) {
+                var gtotal = 0, paid = 0, balance = 0;
+                for (var i = 0; i < aaData.length; i++) {
+                    gtotal += parseFloat(aaData[aiDisplay[i]][6]);
+                    paid += parseFloat(aaData[aiDisplay[i]][7]);
+                    balance += parseFloat(aaData[aiDisplay[i]][8]);
+                }
+                var nCells = nRow.getElementsByTagName('th');
+                nCells[6].innerHTML = currencyFormat(parseFloat(gtotal));
+                nCells[7].innerHTML = currencyFormat(parseFloat(paid));
+                nCells[8].innerHTML = currencyFormat(parseFloat(balance));
+            }
         }).fnSetFilteringDelay().dtFilter([
             {column_number: 1, filter_default_label: "[<?=lang('date');?> (yyyy-mm-dd)]", filter_type: "text", data: []},
             {column_number: 2, filter_default_label: "[<?=lang('reference_no');?>]", filter_type: "text", data: []},
             {column_number: 3, filter_default_label: "[<?=lang('biller');?>]", filter_type: "text", data: []},
             {column_number: 4, filter_default_label: "[<?=lang('customer');?>]", filter_type: "text"},
-			{column_number: 5, filter_default_label: "[<?=lang('customer');?>]", filter_type: "text"}, 
-			 {column_number: 6, filter_default_label: "[<?=lang('drink');?>]", filter_type: "text"},
-            {column_number: 10, filter_default_label: "[<?=lang('payment_status');?>]", filter_type: "text", data: []},
+			 {column_number: 5, filter_default_label: "[<?=lang('drink');?>]", filter_type: "text"},
+            {column_number: 9, filter_default_label: "[<?=lang('payment_status');?>]", filter_type: "text", data: []},
         ], "footer");
 //        $(document).on('click', '#bulk', function () {
 //            alert();
@@ -152,7 +151,6 @@
                             <th><?= lang("reference_no"); ?></th>
                             <th><?= lang("biller"); ?></th>
                             <th><?= lang("Table"); ?></th>
-							<th><?= lang("Counter"); ?></th>
 							<th><?= lang("Drink(Qty)"); ?></th>
                             <th><?= lang("grand_total"); ?></th>
                             <th><?= lang("paid"); ?></th>
@@ -163,7 +161,7 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <td colspan="11" class="dataTables_empty"><?= lang("loading_data"); ?></td>
+                            <td colspan="10" class="dataTables_empty"><?= lang("loading_data"); ?></td>
                         </tr>
                         </tbody>
                         <tfoot class="dtFilter">
@@ -175,7 +173,6 @@
                             <th></th>
                             <th></th>
                             <th></th>
-							<th></th>
 							<th></th>
                             <th ></th>
                             <th><?= lang("grand_total"); ?></th>

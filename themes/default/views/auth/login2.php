@@ -57,7 +57,7 @@
                     <?php } ?>
                     <?php echo form_open("auth/login", 'class="login" data-toggle="validator"'); ?>
                     <div class="div-title">
-                        <h2 class="text-primary" style="color:brown;text-align:center;font-weight:bold">SIPIT LOUNGE</h2>
+                        <h2 class="text-primary" style="color:brown;text-align:center;font-weight:bold">TESSARA BISTRO & GARDENS</h2>
                     </div>
                     <div class="textbox-wrap">
                       <!-- <div class="input-group">

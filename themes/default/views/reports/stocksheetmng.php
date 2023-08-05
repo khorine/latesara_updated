@@ -80,8 +80,8 @@ function product_name($name)
         <div class="text-center">
 
  <h4 style="text-transform:uppercase;"><b><?= lang('Stock_Management'); ?> </b></h4>
- <h4 ><b>TESSARA BISTRO </b></h4>
-  <h4 ><b>Location: <?= $warehouse->name; ?></b></h4>
+ <h4 ><b>TESSARA BISTRO & GARDEN</b></h4>
+  <h4 ><b>Location: Bar</b></h4>
  <div class="text-left"> <h5><b>Date:   <?php echo '  '.date('d-m-Y',strtotime("yesterday"));?></b></h5></div>
 
             <div style="clear:both;"></div>
@@ -151,7 +151,7 @@ function product_name($name)
 						
 						?>
              <tr class="active">
-                            <th><?= lang("#"); ?> <input type="text" name="count" value="<?=$r; ?>" hidden><input type="text" name="warehouseid" value="<?= $warehouse->id; ?>" hidden></th>
+                            <th><?= lang("#"); ?> <input type="text" name="count" value="<?=$r; ?>" hidden></th>
                             <th><?= lang("product_name"); ?></th>
                             <th><?= lang("OP_Stock"); ?></th>
                             <th><?= lang("UOM"); ?></th>

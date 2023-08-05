@@ -225,7 +225,7 @@ if ($this->input->post('cf6')) {
 				
                 <div class="table-responsive">
 				<div style="text-align:center">
-				<b>Tessara Bistro</b>
+				<b>TESSARA BISTRO & GARDEN </b>
 				<h2 class="blue"><i class="fa-fw fa fa-barcode"></i><?= lang('Stock_Sheet_Report'); ?> <?php
                        ?></h2> </div>
                     <table id="PrRData"

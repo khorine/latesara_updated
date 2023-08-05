@@ -213,6 +213,23 @@ class Products_model extends CI_Model
         }
         return FALSE;
     }
+    
+        public function getAllWarehousesWithPQWR($product_id,$warehseid)
+    {
+        $this->db->select('' . $this->db->dbprefix('warehouses') . '.*, ' . $this->db->dbprefix('warehouses_products') . '.quantity, ' . $this->db->dbprefix('warehouses_products') . '.rack')
+            ->join('warehouses_products', 'warehouses_products.warehouse_id=warehouses.id', 'left')
+            ->where('warehouses_products.product_id', $product_id)
+            ->where('warehouses_products.warehouse_id', $warehseid)
+            ->group_by('warehouses.id');
+        $q = $this->db->get('warehouses');
+        if ($q->num_rows() > 0) {
+            foreach (($q->result()) as $row) {
+                $data[] = $row;
+            }
+            return $data;
+        }
+        return FALSE;
+    }
 
     public function getProductPhotos($id)
     {

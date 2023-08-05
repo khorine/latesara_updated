@@ -931,15 +931,6 @@ class Pos extends MY_Controller
                 'paypal_pro' => $this->input->post('paypal_pro'),
                 'stripe' => $this->input->post('stripe'),
                 'rounding' => $this->input->post('rounding'),
-                'custom_theme1' => $this->input->post('theme1'),
-                'custom_theme2' => $this->input->post('theme2'),
-                'custom_theme3' => $this->input->post('theme3'),
-                'custom_theme4' => $this->input->post('theme4'),
-                'custom_theme5' => $this->input->post('theme5'),
-                'custom_theme6' => $this->input->post('theme6'),
-                'custom_theme7' => $this->input->post('theme7'),
-                'custom_theme8' => $this->input->post('theme8'),
-                'custom_theme9' => $this->input->post('theme9'),
             );
             $payment_config = array(
                 'APIUsername' => $this->input->post('APIUsername'),

@@ -79,9 +79,8 @@ if ($modal) {
           <!--    <img src="<?//= base_url() . 'assets/uploads/logos/' . $biller->logo; ?>" alt="<?//= $biller->company; ?>">
 <!--            <h3 style="text-transform:uppercase;"><b>$inv->id$biller->company != '-' ? $biller->company : $biller->name; ?></b></h3>-->
              <h5 style="text-transform:uppercase;font-size:16px"><b><?= $biller->company != '-' ? $biller->company : $biller->name; ?></b></h5>
-                <h6 >MIREMA DRIVE<h6 >  
-                <h6 >NAIROBI</h6>
-		
+				<h6 >NAIROBI</h6>
+				<h6 ><h6 >
 				
             <?php
            //echo "<br>" . lang("tel") . ": " . $biller->phone . "<br>";
@@ -109,7 +108,7 @@ if ($modal) {
             echo "<span style='font-size:14px'>".lang("date") . ": <b>" . $this->sma->hrld($inv->date)."</b>";
            echo  "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		   Order No: <b>". $inv->id."</b></p></span>";
+		   Bill No: <b>". $inv->id."</b></p></span>";
             ?>
             <div style="clear:both;"></div>
             <table class="table table-striped table-condensed">
@@ -193,7 +192,7 @@ if ($modal) {
                         <th><?= "<b>Total Paid</b>"; ?></th>
                         <th class="text-right"><?= $this->sma->formatMoney($inv->bill_change+$inv->paid); ?></th>
                   </tr>-->
-				   <tr style="font-size:20px"><td colspan="2"><br> <b>Mpesa Till No:  8257060 </b></td><td align="center" colspan="2"><br></td><td></td></tr>
+				   <tr style="font-size:15px"><td colspan="2"><br>Mpesa Till No:  9783319</td><td align="center" colspan="2"><br></td><td></td></tr>
 				   <?php if ($inv->printed =='1'){?>
             <tr style="font-size:15px; font-family: "Comic Sans MS", "Comic Sans", cursive;"><td colspan="5" align="center"><br><i><b>RE-PRINT COPY</b></i></td></tr>
             <?php } ?>

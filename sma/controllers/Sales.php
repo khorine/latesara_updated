@@ -213,10 +213,28 @@ function guests($action = NULL)
 
         $this->data['error'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('error');
         $this->data['action'] = $action;
-        $bc = array(array('link' => base_url(), 'page' => lang('home')), array('link' => '#', 'page' => lang('rooms')));
-        $meta = array('page_title' => lang('rooms'), 'bc' => $bc);
+        $bc = array(array('link' => base_url(), 'page' => lang('home')), array('link' => '#', 'page' => lang('Credit_Customers')));
+        $meta = array('page_title' => lang('Credit_Customers'), 'bc' => $bc);
         $this->page_construct('sales/guests', $meta, $this->data);
     }
+    // function getGuests()
+    // {
+    //    $this->sma->checkPermissions('index');
+    //     $this->load->library('datatables');
+
+	// 	 $this->datatables
+    //         ->select("id, name, customer_group_name ")
+    //         ->from("companies")
+    //         ->where('group_name', 'customer')
+	// 		->where('customer_group_name', 'Business/Corporate')
+    //         ->add_column("Actions", "<center>
+    //             <a class=\"tip\" title='" . $this->lang->line("pdf") . "' href='" . site_url('rooms/pdf_bill/$1') . "'><i class=\"fa fa-file-pdf-o\"></i></a> 
+    //             <a class=\"tip\" title='" . $this->lang->line("Guest_Bill") . "' href='" . site_url('sales/allbills/$1') . "' data-toggle='modal' data-target='#myModal'><i class=\"fa fa-money\"></i></a> 
+    //             <a class=\"tip\" title='" . $this->lang->line("edit_room") . "' href='" . site_url('rooms/edit/$1') . "' data-toggle='modal' data-target='#myModal'><i class=\"fa fa-pencil\"></i></a>", "id");
+    //     //->unset_column('id');
+    //     echo $this->datatables->generate();
+		
+    // }
     function getGuests()
     {
        $this->sma->checkPermissions('index');
@@ -227,10 +245,8 @@ function guests($action = NULL)
             ->from("companies")
             ->where('group_name', 'customer')
 			->where('customer_group_name', 'Business/Corporate')
-            ->add_column("Actions", "<center>
-                <a class=\"tip\" title='" . $this->lang->line("pdf") . "' href='" . site_url('rooms/pdf_bill/$1') . "'><i class=\"fa fa-file-pdf-o\"></i></a> 
-                <a class=\"tip\" title='" . $this->lang->line("Guest_Bill") . "' href='" . site_url('sales/allbills/$1') . "' data-toggle='modal' data-target='#myModal'><i class=\"fa fa-money\"></i></a> 
-                <a class=\"tip\" title='" . $this->lang->line("edit_room") . "' href='" . site_url('rooms/edit/$1') . "' data-toggle='modal' data-target='#myModal'><i class=\"fa fa-pencil\"></i></a>", "id");
+            ->add_column("Actions", "<center> 
+                <a class=\"tip\" title='" . $this->lang->line("Bill") . "' href='" . site_url('sales/allbills/$1') . "' data-toggle='modal' data-target='#myModal'><i class=\"fa fa-eye\"></i></a>", "id");
         //->unset_column('id');
         echo $this->datatables->generate();
 		
@@ -303,7 +319,17 @@ foreach ($arr as $key => $value) {
         }
 		
     }
-	
+
+    public function remove_guest_bill() {
+        $billId = $this->input->post('billId');
+        $this->load->model('sales_model');
+        if($this->sales_model->removeBill($billId))
+        {
+            $this->session->set_flashdata('message', lang("bill_removed"));
+            redirect($_SERVER["HTTP_REFERER"]);
+        }
+    }
+
     function getReturns($warehouse_id = NULL)
     {
         $this->sma->checkPermissions('return_sales');

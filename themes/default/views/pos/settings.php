@@ -346,64 +346,6 @@
                     </div>
                 </fieldset>
 
-                <fieldset class="scheduler-border">
-                    <legend class="scheduler-border"><?= lang('night_themes') ?></legend>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="form-group">
-                            <?= lang('theme1', 'nth1'); ?>
-                            <?php echo form_input('theme1', $pos->custom_theme1, 'class="form-control tip" id="nth1"'); ?>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="form-group">
-                            <?= lang('theme2', 'nth2'); ?>
-                            <?php echo form_input('theme2', $pos->custom_theme2, 'class="form-control tip" id="nth2"'); ?>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="form-group">
-                            <?= lang('theme3', 'nth3'); ?>
-                            <?php echo form_input('theme3', $pos->custom_theme3, 'class="form-control tip" id="nth3"'); ?>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="form-group">
-                            <?= lang('theme4', 'nth4'); ?>
-                            <?php echo form_input('theme4', $pos->custom_theme4, 'class="form-control tip" id="nth4"'); ?>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="form-group">
-                            <?= lang('theme5', 'nth5'); ?>
-                            <?php echo form_input('theme5', $pos->custom_theme5, 'class="form-control tip" id="nth5"'); ?>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="form-group">
-                            <?= lang('theme6', 'nth6'); ?>
-                            <?php echo form_input('theme6', $pos->custom_theme6, 'class="form-control tip" id="nth6"'); ?>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="form-group">
-                            <?= lang('theme7', 'nth7'); ?>
-                            <?php echo form_input('theme7', $pos->custom_theme7, 'class="form-control tip" id="nth7"'); ?>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="form-group">
-                            <?= lang('theme8', 'nth8'); ?>
-                            <?php echo form_input('theme8', $pos->custom_theme8, 'class="form-control tip" id="nth9"'); ?>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="form-group">
-                            <?= lang('theme9', 'nth9'); ?>
-                            <?php echo form_input('theme9', $pos->custom_theme9, 'class="form-control tip" id="nth9"'); ?>
-                        </div>
-                    </div>
-                </fieldset>
-
                 <?php echo form_submit('update_settings', lang('update_settings'), 'class="btn btn-primary"'); ?>
 
                 <?php echo form_close(); ?>

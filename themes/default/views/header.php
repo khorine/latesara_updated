@@ -226,9 +226,9 @@
                                         class="fa fa-list"></i></a></li>
                                         
                         <?php } ?>
-                        <!-- <li class="dropdown hidden-xs"><a class="btn bred tip" title="<?= lang('clear_ls') ?>"
+                        <li class="dropdown hidden-xs"><a class="btn bred tip" title="<?= lang('clear_ls') ?>"
                                                           data-placement="bottom" id="clearLS" href="#"><i
-                                    class="fa fa-eraser"></i></a></li> -->
+                                    class="fa fa-eraser"></i></a></li>
                     <?php } ?>
                 </ul>
             </div>
@@ -496,14 +496,12 @@
                                                     class="text"> <?= lang('updates'); ?></span></a></li>
                                     </ul>
                                 </li>
-                                <?php } ?>
+                            <?php } ?>
                             <li class="mm_reports">
                                 <a class="dropmenu" href="#"><i class="fa fa-bar-chart-o"></i><span
                                         class="text"> <?= lang('reports'); ?> </span> <span
                                         class="chevron closed"></span></a>
                                 <ul>
-                                <?php
-                                if($Owner){ ?>
                                     <li id="reports_index"><a href="<?= site_url('reports') ?>"><i
                                                 class="fa fa-bars"></i><span
                                                 class="text"> <?= lang('overview_chart'); ?></span></a></li>
@@ -559,15 +557,9 @@
                                     <li id="reports_monthly_sales"><a href="<?= site_url('reports/monthly_sales') ?>"><i
                                                 class="fa fa-calendar-o"></i><span
                                                 class="text"> <?= lang('monthly_sales'); ?></span></a></li>
-                                    <?php 
-                                }
-                                    if($Owner || $Admin){ ?>
-                                        <li id="reports_sales"><a href="<?= site_url('reports/sales') ?>"><i
+                                    <li id="reports_sales"><a href="<?= site_url('reports/sales') ?>"><i
                                                 class="fa fa-heart"></i><span
                                                 class="text"> <?= lang('sales_report'); ?></span></a></li>
-                                    <?php }     
-                                    if($Owner){ ?>       
-                                    
 								<li id="reports_sales"><a href="<?= site_url('sales/saledet_report') ?>"><i
                                                 class="fa fa-money"></i><span
                                                 class="text"> <?= lang('Food Costing'); ?></span></a></li>
@@ -592,7 +584,7 @@
                                                 class="text"> <?= lang('staff_report'); ?></span></a></li>
                                 </ul>
                             </li>
-                            <?php } ?>
+
                         <?php
                         } else { // not owner and not admin
                             ?>

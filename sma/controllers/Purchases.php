@@ -90,8 +90,8 @@ class Purchases extends MY_Controller
                 ->from('purchases')
                       ->join('users', 'users.id=purchases.created_by', 'left')
                           ->join('purchase_items', 'purchase_items.purchase_id=purchases.id', 'left')
-                ->where('purchases.warehouse_id', $warehouse_id)
-                 ->group_by('purchases.id');
+                ->where('purchases.warehouse_id', $warehouse_id);
+                   // ->group_by('purchases.id');
         } else {
             $this->datatables
                 ->select("purchases.id as id,product_name,purchases.date as date, reference_no, supplier,first_name, purchases.status as status, grand_total, paid, (grand_total-paid) as balance, payment_status")

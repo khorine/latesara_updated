@@ -282,10 +282,7 @@
 
                     <div class="col-xs-4 col-xs-offset-1">
                         <div class="well well-sm">
-						
-						<p><?= lang("Sold_by"); ?>: <?= $solduser->first_name . ' ' . $solduser->last_name; ?> </p>
-							<p></p>
-                            <p><?= lang("Returned_By"); ?>: <?= $user->first_name . ' ' . $user->last_name; ?> </p>
+                            <p><?= lang("created_by"); ?>: <?= $user->first_name . ' ' . $user->last_name; ?> </p>
 
                             <p><?= lang("date"); ?>: <?= date($dateFormats['php_ldate'], strtotime($inv->date)); ?></p>
                             <?php if ($inv->updated_by) { ?>

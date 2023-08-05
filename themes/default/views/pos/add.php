@@ -33,7 +33,6 @@
 		height: 70px;
 		min-width: 90px;
 	}
-	
 	</style>
 </head>
 <body>
@@ -219,11 +218,9 @@
                                     
 
                            <button class="btn-prni btn-info minimize" data-toggle="modal" data-target="#tablesdiv" id="tableselect"><b>SELECT ORDER </b> </button>
-						   <?php if ($Owner) { ?>
 						   <button class="btn-prni btn-secondary minimize" data-toggle="modal" data-target="#srptdiv" id="srptselect"><b>SALES REPORT </b> </button>
 						   <button class="btn-prni btn-secondary minimize" data-toggle="modal" data-target="#smrytdiv" id="smrytselect"><b>SUMMARY REPORT </b> </button>
-						   <?php } ?>
-						   <button class="btn-prni btn-warning minimize" data-toggle="modal" data-target="#printbilldiv" id="tableprintbill" ><b>PRINT BILL </b> </button>
+						   <button class="btn-prni btn-info minimize" data-toggle="modal" data-target="#printbilldiv" id="tableprintbill" ><b>PRINT BILL </b> </button>
                            <button class="btn-prni btn-primary minimize" data-toggle="modal" data-target="#roomsdiv" id="roomselect" style="display:none"> ROOM</button>
                                 <?php
                                     echo form_input('count_cust', (isset($_POST['count_cust']) ? $_POST['count_cust'] : ""), 'id="countcustomers" placeholder="Table No" required="required" class="form-control pos-input-tip" style="width:100%; display:none"');
@@ -234,16 +231,27 @@
                       
                             </div>
                             <div class="no-print">
-                                    <div class="form-group " style="margin-bottom:20px">
+                                <?php if ($Owner || $Admin) { ?>
+                                    <div class="form-group">
                                         <?php
-                                       $wh[''] = '';
+                                        $wh[''] = '';
                                         foreach ($warehouses as $warehouse) {
                                             $wh[$warehouse->id] = $warehouse->name;
                                         }
-                                        echo form_dropdown('warehouse', $wh, (isset($_POST['warehouse']) ? $_POST['warehouse'] : ' '), 'id="poswarehouse" class="form-control pos-input-tip"  data-placeholder="' . $this->lang->line("select") . ' ' . $this->lang->line("warehouse") . '" required="required" style="width:100%;" ');
+                                        echo form_dropdown('warehouse', $wh, (isset($_POST['warehouse']) ? $_POST['warehouse'] : $Settings->default_warehouse), 'id="poswarehouse" class="form-control pos-input-tip" data-placeholder="' . $this->lang->line("select") . ' ' . $this->lang->line("warehouse") . '" required="required" style="width:100%;" ');
                                         ?>
                                     </div>
-            
+                                <?php } else {
+
+                                   $warehouse_input = array(
+                                        'type' => 'hidden',
+                                        'name' => 'warehouse',
+                                        'id' => 'poswarehouse',
+                                        'value' => $this->session->userdata('warehouse_id'),
+                                    );
+
+                                   echo form_input($warehouse_input);
+                               } ?>
                                 <div class="form-group" id="ui">
                                     <div class="input-group">
                                         <?php echo form_input('add_item', '', 'class="form-control pos-tip" id="add_item" data-placement="top" data-trigger="focus" placeholder="' . $this->lang->line("search_product_by_name_code") . '" title="' . $this->lang->line("au_pr_name_tip") . '"'); ?>
@@ -264,11 +272,11 @@
                                            id="posTable" style="margin-bottom: 0;">
                                         <thead>
                                         <tr>
-                                            <th width="38%"><?= lang("product"); ?></th>
+                                            <th width="40%"><?= lang("product"); ?></th>
                                             <th width="15%"><?= lang("price"); ?></th>
                                             <th width="15%"><?= lang("qty"); ?></th>
                                             <th width="20%"><?= lang("subtotal"); ?></th>
-                                            <th style="width: 7%; text-align: center;"><i class="fa fa-trash-o"
+                                            <th style="width: 5%; text-align: center;"><i class="fa fa-trash-o"
                                                                                           style="opacity:0.5; filter:alpha(opacity=50);"></i>
                                             </th>
                                         </tr>
@@ -295,7 +303,7 @@
                                     </tr>
                                     <tr>
                                         <td style="padding: 5px 10px;"><?= lang('order_tax'); ?>
-                                            <a href="#" id="pptax2" style="display:none">
+                                            <a href="#" id="pptax2">
                                                 <i class="fa fa-edit"></i>
                                             </a>
                                         </td>
@@ -303,7 +311,7 @@
                                             <span id="ttax2">0.00</span>
                                         </td>
                                         <td style="padding: 5px 10px;"><?= lang('discount'); ?>
-                                            <a href="#" id="ppdiscount" style="display:none">
+                                            <a href="#" id="ppdiscount">
                                                 <i class="fa fa-edit"></i>
                                             </a>
                                         </td>
@@ -976,7 +984,7 @@
                 </div>
 				 </div>
 				</div>
-				<div class="row">
+                <div class="row">
 				<div class="col-lg-6"> 
 				 <div class="form-group">
 				   <?php
@@ -990,6 +998,8 @@
 					</div>
 				 </div>
 				</div>
+				
+
 </div>
 <div class="box-footer">
                 
@@ -1562,7 +1572,7 @@ var lang = {unexpected_value: '<?=lang('unexpected_value');?>', select_above: '<
            				$( ".tablebtn2" ).click(function() {
      var $tableid = $(this).val()
 		//$to = $( "#smry_to_date" ).val();
-        window.open("../../latesara/pos/printcombinebill/?tableid="+$tableid);
+        window.open("../../tesarabistro/pos/printcombinebill/?tableid="+$tableid);
 
     });  
        $('#payment').click(function () {
@@ -1600,14 +1610,14 @@ var lang = {unexpected_value: '<?=lang('unexpected_value');?>', select_above: '<
 			$( "#actual_rentalIcme" ).click(function() {
     $startdate = $( "#actual_from_date" ).val();
 		$to = $( "#actual_to_date" ).val();
-		$warehouseid = $( "#saleswarehouse" ).val();
-        window.open("../../latesara/pos/viewsalepos/?startdate="+$startdate+"&todate="+$to+"&warehouseid="+$warehouseid);
+        $warehouseid = $( "#saleswarehouse" ).val();
+        window.open("../../tessarabistro/pos/viewsalepos/?startdate="+$startdate+"&todate="+$to);
 
     });
 				$( "#actual_smry" ).click(function() {
     $startdate = $( "#smry_from_date" ).val();
 		$to = $( "#smry_to_date" ).val();
-        window.open("../../latesara/pos/viewsalesumm/?startdate="+$startdate+"&todate="+$to);
+        window.open("../../tessarabistro/pos/viewsalesumm/?startdate="+$startdate+"&todate="+$to);
 
     });
 	
