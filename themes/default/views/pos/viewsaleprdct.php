@@ -111,9 +111,10 @@ if ($modal) {
             <table class="table table-striped table-condensed" border="1">
                 <tbody>
 				<tr>
-                    <td style="text-align:center" colspan="2">Item</td>
+                    <!-- <td style="text-align:center" colspan="2">Item</td> -->
+                    <td align="centre" colspan="2">Item</td> 
                     <td align="centre">Sold Qty</td>
-                    <td align="centre">Rem Qty</td>
+                    <!-- <td align="centre">Rem Qty</td> -->
                 </tr>
                 <?php
                 $r = 1;
@@ -134,7 +135,7 @@ if ($modal) {
                     }
                     echo '<tr style="font-size:15px"><td colspan="2">#:&nbsp;&nbsp;' . product_name($row->product_name);
                     echo '<td>&nbsp' . number_format($row->QTY) . '</td>';
-                    echo '<td>&nbsp' . number_format($row->RemQty) . '</td></tr>';
+                    // echo '<td>&nbsp' . number_format($row->RemQty) . '</td></tr>';
                     $data7 = '#'. product_name($row->product_name) . '*' . $row->tax_code . '' . PHP_EOL;
 					
 					$data8 = '' . $this->sma->formatNumber($row->QTY) . ' x ';

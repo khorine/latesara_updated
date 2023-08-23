@@ -888,16 +888,15 @@ $array=array();
     }
 	  public function getAllprdctsales($sdate,$tdate,$warehouseid)
     {
-        $this->db->select('product_name, sma_sales.pmethod ,SUM(sma_sale_items.quantity) AS QTY, sma_warehouses_products.quantity as RemQty')
-            ->join('sale_items', 'sale_items.sale_id = sales.id', 'left')
-			->join('products', 'products.id = sale_items.product_id')
-            ->join('warehouses_products', 'warehouses_products.product_id = products.id', 'left')
-			->where("date >= '$sdate' and date <= '$tdate'")
-			->where("sma_sales.warehouse_id = '$warehouseid'")
-			->where("pos ='1'")
-            ->group_by('sale_items.product_id')
-            ->order_by('products.category_id', 'asc');
-        $q = $this->db->get_where('sales');
+        $this->db->select('product_name, sma_sales.pmethod ,SUM(sma_sale_items.quantity) AS QTY')
+        ->join('sale_items', 'sale_items.sale_id = sales.id', 'left')
+        ->join('products', 'products.id = sale_items.product_id')
+        ->where("date >= '$sdate' and date <= '$tdate'")
+        ->where("sma_sales.warehouse_id = '$warehouseid'")
+        ->where("pos ='1'")
+        ->group_by('product_id')
+        ->order_by('products.category_id', 'asc');
+    $q = $this->db->get_where('sales');
         if ($q->num_rows() > 0) {
             foreach (($q->result()) as $row) {
                 $data[] = $row;
