@@ -26,18 +26,18 @@
                 "bSearchable": false,
                 "mRender": pqFormat
             }, {"mRender": currencyFormat}, {"mRender": currencyFormat}, {"mRender": currencyFormat}, {"mRender": row_status}, {"bSortable": false}],
-            // "fnFooterCallback": function (nRow, aaData, iStart, iEnd, aiDisplay) {
-            //    // var gtotal = 0, paid = 0, balance = 0;
-            // //     for (var i = 0; i < aaData.length; i++) {
-            // //         gtotal += parseFloat(aaData[aiDisplay[i]][7]);
-            // //         paid += parseFloat(aaData[aiDisplay[i]][8]);
-            // //         balance += parseFloat(aaData[aiDisplay[i]][9]);
-            // //     }
-            // //     var nCells = nRow.getElementsByTagName('th');
-            // //     nCells[7].innerHTML = currencyFormat(parseFloat(gtotal));
-            // //     nCells[8].innerHTML = currencyFormat(parseFloat(paid));
-            // //     nCells[9].innerHTML = currencyFormat(parseFloat(balance));
-            // // }
+            "fnFooterCallback": function (nRow, aaData, iStart, iEnd, aiDisplay) {
+               var gtotal = 0, paid = 0, balance = 0;
+                for (var i = 0; i < aaData.length; i++) {
+                    gtotal += parseFloat(aaData[aiDisplay[i]][7]);
+                    paid += parseFloat(aaData[aiDisplay[i]][8]);
+                    balance += parseFloat(aaData[aiDisplay[i]][9]);
+                }
+                var nCells = nRow.getElementsByTagName('th');
+                nCells[7].innerHTML = currencyFormat(parseFloat(gtotal));
+                nCells[8].innerHTML = currencyFormat(parseFloat(paid));
+                nCells[9].innerHTML = currencyFormat(parseFloat(balance));
+            }
         }).fnSetFilteringDelay().dtFilter([
             {column_number: 1, filter_default_label: "[<?=lang('date');?> (yyyy-mm-dd)]", filter_type: "text", data: []},
             {column_number: 2, filter_default_label: "[<?=lang('reference_no');?>]", filter_type: "text", data: []},

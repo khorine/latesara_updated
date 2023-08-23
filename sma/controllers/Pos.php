@@ -126,7 +126,7 @@ class Pos extends MY_Controller
                 ->join('companies', 'companies.id=sales.customer_id', 'left')
 				->join('sale_items', 'sale_items.sale_id=sales.id', 'left')
 				->join('warehouses', 'warehouses.id=sales.warehouse_id', 'left')
-               //->where('sales.warehouse_id', $warehouse_id)
+               ->where('sales.warehouse_id', $warehouse_id)
 			   ->where('sales.payment_status <> "paid"')
                 ->group_by('sales.id');
         } else {
